@@ -109,44 +109,44 @@ namespace ConsoleApp1
             ////分支相关作业
             // 观察一起帮登录页面，用if...else...完成以下功能。
             //试验了一下，功能基本完成
-            {
+            //{
 
-                string username_d = "赵淼";
-                string password_d = "17bang";
-                string Security_Code = "5060";
-                Console.WriteLine("请输入验证码：5060");
-                string Security_Code1 = Console.ReadLine();
+            //    string username_d = "赵淼";
+            //    string password_d = "17bang";
+            //    string Security_Code = "5060";
+            //    Console.WriteLine("请输入验证码：5060");
+            //    string Security_Code1 = Console.ReadLine();
 
-                if (Security_Code1 != Security_Code)
-                {
-                    Console.WriteLine("验证码错误");
-                }
-                else
-                {
-                    Console.WriteLine("请输入用户名:");
-                    string username1 = Console.ReadLine();
+            //    if (Security_Code1 != Security_Code)
+            //    {
+            //        Console.WriteLine("验证码错误");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("请输入用户名:");
+            //        string username1 = Console.ReadLine();
 
-                    if (username1 == "")
-                    {
-                        Console.WriteLine("用户名不存在");
-                    }
-                    else if (username1 != username_d)
-                    {
-                        Console.WriteLine("用户名或密码错误");
-                    }
-                    else
-                    {
-                        Console.WriteLine("请输入密码:");
-                        string possword1 = Console.ReadLine();
-                        if (possword1 != password_d)
-                        {
-                            Console.WriteLine("用户名或密码错误");
-                        }
-                        else
-                        {
-                            Console.WriteLine("恭喜！登录成功");
-                        }
-                    }
+            //        if (username1 == "")
+            //        {
+            //            Console.WriteLine("用户名不存在");
+            //        }
+            //        else if (username1 != username_d)
+            //        {
+            //            Console.WriteLine("用户名或密码错误");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("请输入密码:");
+            //            string possword1 = Console.ReadLine();
+            //            if (possword1 != password_d)
+            //            {
+            //                Console.WriteLine("用户名或密码错误");
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("恭喜！登录成功");
+            //            }
+            //        }
                 }
             }
 
