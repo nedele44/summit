@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yiqibang", "yiqibang\yiqiba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Csharp", "CSharp\Csharp.csproj", "{89E79EC6-DD24-4011-A2B0-EC53241F530A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "summit", "summit\summit.csproj", "{7CE58F67-7EF1-4A4E-9B2F-42EE8E85C2F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{89E79EC6-DD24-4011-A2B0-EC53241F530A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E79EC6-DD24-4011-A2B0-EC53241F530A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E79EC6-DD24-4011-A2B0-EC53241F530A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE58F67-7EF1-4A4E-9B2F-42EE8E85C2F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE58F67-7EF1-4A4E-9B2F-42EE8E85C2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE58F67-7EF1-4A4E-9B2F-42EE8E85C2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE58F67-7EF1-4A4E-9B2F-42EE8E85C2F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
