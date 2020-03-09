@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>yiqibang</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    @*<script src="~/js/jquery.min.js"></script>
+        <script src="~/js/bootstrap.min.js"></script>*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/Content/font-awesome.min.css">
+    <style >
+        
+    </style>
+</head>
+<body>
+    <header >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light container" >
+            <a class="navbar-brand" href="#">
+                <img src="~/image/logo.ico" alt="一起帮">
+            </a>
+            <span class="lead">一起帮</span>
+           <span>·网络互助平台</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsupportcontent" aria-controls="navbarsupportcontent" aria-expanded="false" aira-label="toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-row-reverse" >
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+                            <i class="fa fa-question-circle-o text-success" aria-hidden="true"></i>求助
+                        </a>
+                        <div class="dropdown-menu">
+                            <p class="dropdown-header">督导班</p>
+                            <a class="dropdown-item" href="#"><i class="fa fa-eye"></i>督导班</a>
+                            <a class="dropdown-item"><i class="fa fa-list"></i>列表</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-edit"></i>疑问发布</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-list"></i>疑问列表</a>
+                            <hr />
+                            <a class="dropdown-item"><i class="fa fa-list"></i>列表</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-edit"></i>发布</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+                            <i class="fa fa-eye text-success" aria-hidden="true"></i>督促
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#"><i class="fa fa-edit"></i>求督促</a>
+                            <a class="dropdown-item"><i class="fa fa-gavel"></i>督促别人</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-list"></i>我的目标</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-list"></i>我的督促</a>
+                            <a class="dropdown-item"><i class="fa fa-money"></i>未交作业</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+                            <i class="fa fa-paper-plane text-success" aria-hidden="true"></i>文章
+                        </a>
+                        <div class="dropdown-menu ">
+                            <a class="dropdown-item"><i class="fa fa-list"></i>列表</a>
+                            <a class="dropdown-item"><i class="fa fa-folder"></i>开通</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+                            <i class="fa fa-user-secret text-success" aria-hidden="true"></i>未登录
+                        </a>
+                        <div class="dropdown-menu show">
+                            <a class="dropdown-item"><i class="fa fa-sign-in"></i>登录</a>
+                            <a class="dropdown-item"><i class="fa fa-registered"></i>注册</a>
+                            <a class="dropdown-item"><i class="fa fa-lock"></i>忘记密码</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+    </header>
+    @RenderBody()
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - yiqibang - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+
+
+
+</body>
+</html>
