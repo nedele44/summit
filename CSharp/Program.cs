@@ -147,8 +147,8 @@ namespace ConsoleApp1
             //                Console.WriteLine("恭喜！登录成功");
             //            }
             //        }
-                }
-            }
+            //    }
+            //}
 
 
 
@@ -164,7 +164,83 @@ namespace ConsoleApp1
 
 
             //关于循环的作业
+             //分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
+            {
+                //for (int i = 1; i < 6; i++)
+                //{
+                //    Console.WriteLine(i);
+                //}
 
+                //int i = 0;
+                //while (i<5)
+                //{
+                //    i++;
+                //    Console.WriteLine(i);
+                //}
+
+                //for (int i = 1; i < 11; i+=2)
+                //{
+                //    Console.WriteLine(i);
+                //}
+
+                //int i = 1;
+                //while (i<11)
+                //{
+                //    Console.WriteLine(i);
+                //    i += 2;
+                //}
+            }
+
+
+            //用for循环输出存储在一维/二维数组里的源栈所有同学姓名/昵称
+            {
+                //string[] stuName = { "赵淼", "王名智", "小黄", "阿泰", "刘江平" };
+                //string[] nikName = { "推理之子", "王月胖子", "bilibili", "源栈-泰", "陌城以北" };
+                //for (int i = 0; i < 5; i++)
+                //{
+                //    Console.WriteLine(stuName[i]+":"+nikName[i]);
+                //}
+            }
+
+            //让电脑计算并输出：99+97+95+93+...+1的值
+            //{
+            //    int sum1;
+            //    sum1 = 1;
+            //    for (int i = 1; i < 100; i += 2)
+            //    {
+            //        sum1 += i;
+            //    }
+            //    Console.WriteLine(sum1);
+            //}
+
+            //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
+            {
+                double[] Score = { 88.88, 99.99, 77.77, 55.55, 66.66 };
+double scoreMax, scoreMin;
+scoreMax = Score[0];
+                scoreMin = Score[0];
+
+                for (int i = 1; i< 5; i++)
+                {
+                    if (Score[i]> scoreMax)
+                    {
+                        scoreMax = Score[i];
+                    }//else nothing change
+                }
+                for (int i = 0; i< 5; i++)
+                {
+                    if (Score[i] < scoreMin)
+                    {
+                        scoreMin = Score[i];
+                    }//else nothing change
+                }
+                Console.WriteLine(scoreMax);
+                Console.WriteLine(scoreMin);
+            }
+
+
+
+            //找到100以内的所有质数
         }
 
     }
