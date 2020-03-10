@@ -9,12 +9,14 @@ namespace ConsoleApp1
             //图像的数据类型比较复杂，以后再说
             {
                 ////性别的数据类型应该字符
-                //char Gender = '男';
+                //char male = '男';
+                //char female = '女';
                 ////年月日应该是用整数
                 //int Year = 2020;
+                //int Month = 3;
                 ////关键字应该是用字符串
-                //string Language = "Csharp";
-                ////自我介绍也是字符串
+                //string[] keyWord = { "编程开发语言", "工具软件", "顾问咨询", "操作系统" };
+                ////自我介绍也是字符;
             }
 
 
@@ -111,28 +113,24 @@ namespace ConsoleApp1
             //试验了一下，功能基本完成
             //{
 
-            //    string username_d = "赵淼";
-            //    string password_d = "17bang";
-            //    string Security_Code = "5060";
+            //    string usernameD = "赵淼";
+            //    string passwordD = "17bang";
+            //    string securityCode = "5060";
             //    Console.WriteLine("请输入验证码：5060");
-            //    string Security_Code1 = Console.ReadLine();
+            //    string securityCodeR = Console.ReadLine();
 
-            //    if (Security_Code1 != Security_Code)
+            //    if (securityCodeR != securityCode)
             //    {
             //        Console.WriteLine("验证码错误");
             //    }
             //    else
             //    {
             //        Console.WriteLine("请输入用户名:");
-            //        string username1 = Console.ReadLine();
+            //        string userNameR = Console.ReadLine();
 
-            //        if (username1 == "")
+            //        if (userNameR != "username_d")
             //        {
             //            Console.WriteLine("用户名不存在");
-            //        }
-            //        else if (username1 != username_d)
-            //        {
-            //            Console.WriteLine("用户名或密码错误");
             //        }
             //        else
             //        {
@@ -163,8 +161,12 @@ namespace ConsoleApp1
 
 
 
+
+
+
+
             //关于循环的作业
-             //分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
+            //分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
             {
                 //for (int i = 1; i < 6; i++)
                 //{
@@ -201,47 +203,122 @@ namespace ConsoleApp1
                 //    Console.WriteLine(stuName[i]+":"+nikName[i]);
                 //}
             }
+            {
+                string[,] stuNikname = { { "赵淼", "王名智", "小黄", "阿泰", "刘江平" }, { "推理之子", "王月胖子", "bilibili", "源栈-泰", "陌城以北" } };
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine(stuNikname[0, i] + ":" + stuNikname[1, i]);
+                }
+            }
 
             //让电脑计算并输出：99+97+95+93+...+1的值
             //{
-            //    int sum1;
-            //    sum1 = 1;
+            //    int sumInt;
+            //    sumInt = 1;
             //    for (int i = 1; i < 100; i += 2)
             //    {
-            //        sum1 += i;
+            //        sumInt += i;
             //    }
-            //    Console.WriteLine(sum1);
+            //    Console.WriteLine(sumInt);
             //}
 
             //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
-            {
-                double[] Score = { 88.88, 99.99, 77.77, 55.55, 66.66 };
-double scoreMax, scoreMin;
-scoreMax = Score[0];
-                scoreMin = Score[0];
 
-                for (int i = 1; i< 5; i++)
+
+            //{
+            //    double[] Score = { 88.88, 99.99, 77.77, 55.55, 66.66 };
+            //    double scoreMax, scoreMin;
+            //    scoreMax = Score[0];
+            //    scoreMin = Score[0];
+
+            //    for (int i = 1; i < 5; i++)
+            //    {
+            //        if (Score[i] > scoreMax)
+            //        {
+            //            scoreMax = Score[i];
+            //        }//else nothing change
+            //    }
+            //    for (int i = 0; i < 5; i++)
+            //    {
+            //        if (Score[i] < scoreMin)
+            //        {
+            //            scoreMin = Score[i];
+            //        }//else nothing change
+            //    }
+            //    Console.WriteLine(scoreMax);
+            //    Console.WriteLine(scoreMin);
+            //}
+
+            //{
+            //    double[] Score = { 88.88, 99.99, 77.77, 55.55, 66.66 };
+            //    double scoreMax, scoreMin;
+            //    scoreMax = Score[0];
+            //    scoreMin = Score[0];
+
+            //    for (int i = 1; i < 5; i++)
+            //    {
+            //        if (Score[i] > scoreMax)
+            //        {
+            //            scoreMax = Score[i];
+            //        }//else nothing change
+
+            //        if (Score[i] < scoreMin)
+            //        {
+            //            scoreMin = Score[i];
+            //        }//else nothing change
+            //    }
+            //    Console.WriteLine(scoreMax);
+            //    Console.WriteLine(scoreMin);
+            //}
+
+
+            //找到1000以内的所有质数
+            //{
+            //    int Max = 1000;
+            //    //指数肯定是大于2的奇数
+            //    //假设i=29  2 
+            //    Console.WriteLine(2);
+            //    for (int i = 3; i < Max+1; i+=2)
+            //    {
+            //        bool flag = false;
+            //        for (int j = 2; j*j< i; j++)
+            //        {
+            //            if (i%j==0)
+            //            {
+            //                flag=true;
+            //            }
+            //        }
+            //        if (!flag)
+            //        {
+            //            Console.WriteLine(i);
+            //        }
+            //    }
+
+            //}
+
+
+            //生成一个元素（值随机）从小到大排列的数组
+            {
+                Random ran = new Random();
+
+                int[] nList = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };//给个默认的10项数组
+                nList[0] = ran.Next(1000);//把第一项先随机出来
+                Console.WriteLine(nList[0]);
+                for (int i = 1; i < 10; i++)
                 {
-                    if (Score[i]> scoreMax)
-                    {
-                        scoreMax = Score[i];
-                    }//else nothing change
+                    nList[i] = ran.Next(nList[i - 1], 990+i);//990+i用来避免后面出现重复
+                    Console.Write(nList[i]+",");
                 }
-                for (int i = 0; i< 5; i++)
-                {
-                    if (Score[i] < scoreMin)
-                    {
-                        scoreMin = Score[i];
-                    }//else nothing change
-                }
-                Console.WriteLine(scoreMax);
-                Console.WriteLine(scoreMin);
+                
+
             }
 
 
 
-            //找到100以内的所有质数
-        }
 
+
+
+        }
     }
 }
