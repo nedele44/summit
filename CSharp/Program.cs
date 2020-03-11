@@ -299,22 +299,68 @@ namespace ConsoleApp1
 
 
             //生成一个元素（值随机）从小到大排列的数组
+            //{
+            //    Random ran = new Random();
+
+            //    int[] nList = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };//给个默认的10项数组
+            //    nList[0] = ran.Next(1000);//把第一项先随机出来
+            //    Console.WriteLine(nList[0]);
+            //    for (int i = 1; i < 10; i++)
+            //    {
+            //        nList[i] = ran.Next(nList[i - 1], 990 + i);//990+i用来避免后面出现重复
+            //        Console.Write(nList[i] + ",");
+            //    }
+            //}
+
+            //猜数字，限制次数10，输入一个不超过1000的自然数
+            //{
+            //    Console.WriteLine("Hello World");
+            //    Console.WriteLine("请输入一个不超过1000的自然数");
+            //    Random ran = new Random();
+            //    int rn = ran.Next(1000);
+            //    bool flag = false;
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        int putNum;
+            //        putNum= Console.Read();
+            //        if (putNum == rn)
+            //        {
+            //            Console.WriteLine("恭喜你，答对了！只用了" + i + "次呢，棒棒哒！");
+            //            flag = true;//当十次没有猜对时准备
+            //            break;
+            //        }
+            //        else if (putNum > rn)
+            //        {
+            //            Console.WriteLine("太大了哟" + "(还剩" + (9 - i) + "次）");
+
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("太小了哟" + "(还剩" + (9 - i) + "次）");
+            //        }
+            //    }
+            //    if (flag==false)
+            //    {
+            //        Console.WriteLine("很遗憾，游戏结束。");
+            //    }
+            //}
+            //这个运行有问题，但是找不出来，先做下一题
+
+
+
+            //设立并显示一个多维数组的值，元素值等于下标之和。Console.Write()
             {
-                Random ran = new Random();
-
-                int[] nList = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };//给个默认的10项数组
-                nList[0] = ran.Next(1000);//把第一项先随机出来
-                Console.WriteLine(nList[0]);
-                for (int i = 1; i < 10; i++)
+                int[][] mda = new int[3][];
+                for (int i = 0; i < 3; i++)
                 {
-                    nList[i] = ran.Next(nList[i - 1], 990+i);//990+i用来避免后面出现重复
-                    Console.Write(nList[i]+",");
+                    for (int j = 0; j < 4; j++)
+                    {
+                        int bottom = i + j;
+                        Console.Write(bottom + "\t");
+                    }
+                    Console.WriteLine("\n");
                 }
-                
-
             }
-
-
 
 
 
