@@ -6,6 +6,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //作业
             //图像的数据类型比较复杂，以后再说
             {
                 ////性别的数据类型应该字符
@@ -20,7 +21,6 @@ namespace ConsoleApp1
             }
 
 
-
             //输出两个整数的和差积商
             {
                 //int a, b;
@@ -31,8 +31,6 @@ namespace ConsoleApp1
                 //Console.WriteLine(a * b);
                 //Console.WriteLine(a / b);
             }
-
-
 
 
             //电脑计算输出，精确到小数点后2位
@@ -57,8 +55,6 @@ namespace ConsoleApp1
                 //        Console.WriteLine(r);
                 //    }
             }
-
-
 
 
             //想想一下语句的输出结果
@@ -88,15 +84,12 @@ namespace ConsoleApp1
             }
 
 
-
-
             ////想一想如下代码的结果是什么，并说明原因：
             {
                 //    int a = 10;
                 //    Console.WriteLine(a > 9 && (!(a < 11) || a > 10));
             }
             ////1&&(!(1)||(0))=0 输出应该是False
-
 
 
             ////当a为何值时，结果为true？ 
@@ -163,10 +156,6 @@ namespace ConsoleApp1
 
 
 
-
-
-
-
             //关于循环的作业
             //分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
             {
@@ -226,8 +215,6 @@ namespace ConsoleApp1
             }
 
             //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
-
-
             {
                 //    double[] Score = { 88.88, 99.99, 77.77, 55.55, 66.66 };
                 //    double scoreMax, scoreMin;
@@ -275,6 +262,22 @@ namespace ConsoleApp1
             }
 
 
+
+            //上面的作业，飞哥可以不用细看了
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             //找到1000以内的所有质数
             {
                 //    int Max = 1000;
@@ -283,7 +286,7 @@ namespace ConsoleApp1
                 //    Console.WriteLine(2);
                 //    for (int i = 3; i < Max+1; i+=2)
                 //    {
-                //        bool flag = false;
+                //        bool prime = false;
                 //        for (int j = 2; j*j< i; j++)
                 //        {
                 //            if (i%j==0)
@@ -291,7 +294,7 @@ namespace ConsoleApp1
                 //                flag=true;
                 //            }
                 //        }
-                //        if (!flag)
+                //        if (!prime)
                 //        {
                 //            Console.WriteLine(i);
                 //        }
@@ -362,11 +365,8 @@ namespace ConsoleApp1
 
 
 
-
-
-
-
             //调用我编写的多行多列数组
+            //在函数中生成数组，下面是显示数组的方法
             {
                 //int[,] result = specialMatrix(3, 4);
                 //for (int i = 0; i < 3; i++)
@@ -386,6 +386,49 @@ namespace ConsoleApp1
                 //for (int i = 0; i < 11; i++)
                 //{
                 //    Console.Write(result[i] + "\t");
+                //}
+            }
+
+
+
+            //调用编写的取质数方法
+            {
+                //Prime(2000);
+            }
+
+
+
+            //先构建GetAverage函数，精确到两位小数
+            {
+                //double result = GetAverage(10);
+                //Console.WriteLine(result);
+            }
+
+
+
+
+            //猜数字，方法名GuessMe，范围为1000，不能超过十次
+            {
+                //GuessMe(100, 9);
+
+            }
+
+
+            //利用ref调用Swap()方法交换两个同学的床位号
+            {
+                //string a = "01";
+                //string b = "02";
+                //Swap(ref a, ref b);
+            }
+
+
+            //生成数组，int[] GetArray(),从小到大
+            //参数包含：最小值min,差值gap（默认为5）,元素个数length(默认为10个)
+            {
+                //int[] reslut = GetArray(10,15,20);
+                //for (int i = 0; i < 20; i++)
+                //{
+                //    Console.Write(reslut[i]+ "\t");
                 //}
             }
         }
@@ -427,7 +470,7 @@ namespace ConsoleApp1
         /// </summary>
         /// <param name="length">数组的长度大于2</param>
         /// <param name="Max">范围，大于100</param>
-             /// <returns></returns>
+        /// <returns></returns>
         static int[] IncreaseList(int length, int Max)
         {
             Random ran = new Random();
@@ -445,14 +488,13 @@ namespace ConsoleApp1
 
 
 
-
-        static int[] Prime(int Max)
+        /// <summary>
+        /// 输出任意大于2的数内的所有质数
+        /// </summary>
+        /// <param name="Max">范围</param>
+        static void Prime(int Max)
         {
-
-            //指数肯定是大于2的奇数
-            //假设i=29  2 
-            int[] array = new int[0];
-            array[0]=2;
+            Console.Write(2);
             for (int i = 3; i < Max; i += 2)
             {
                 bool flag = false;
@@ -465,12 +507,119 @@ namespace ConsoleApp1
                 }
                 if (!flag)
                 {
-                    Console.WriteLine(i);
+                    Console.Write(i + " ");
                 }
-                return 
             }
 
+        }
 
 
+        /// <summary>
+        /// 计算所用学生的平均数
+        /// </summary>
+        /// <param name="Length">学生的的数量</param>
+        /// <returns>学生的平均成绩，并精确到小数点后两位</returns>
+        static double GetAverage(int Length)
+        {
+
+            double[] array = new double[Length];//申明一个小数数组来装学生成绩
+            double sum = 0;//初始化总成绩
+            double average;
+            for (int i = 0; i < Length; i++)
+            {
+                array[i] = double.Parse(Console.ReadLine());
+            }
+
+            for (int i = 0; i < Length; i++)
+            {
+                sum = sum + array[i];
+            }
+
+            average = Math.Round(sum / Length, 2);
+
+            return average;
+        }
+
+
+        /// <summary>
+        /// 猜数字游戏
+        /// </summary>
+        /// <param name="max">可猜测范围</param>
+        /// <param name="times">可猜测数字,建议大于8</param>
+        static void GuessMe(int max, int times)
+        {
+            Console.WriteLine("请输入一个不超过" + max + "的自然数");
+            int Mystery = new Random().Next(max);
+            Console.WriteLine(Mystery);
+            bool pass = false;
+            for (int i = 0; i < times; i++)
+            {
+                int answer = int.Parse(Console.ReadLine());
+                if (answer > Mystery)
+                {
+                    Console.WriteLine("大了");
+                }
+                else if (answer < Mystery)
+                {
+                    Console.WriteLine("小了");
+
+                }
+                else
+                {
+                    if (i < 5)
+                    {
+                        Console.WriteLine("你真牛B");
+                    }
+                    else if (i < 8)
+                    {
+                        Console.WriteLine("不错嘛");
+                    }
+                    pass = true;//当十次没有猜对时准备
+                    break;
+                }
+            }
+            if (!pass)
+            {
+                Console.WriteLine("(～￣(OO)￣)ブ");
+            }
+        }
+
+
+        /// <summary>
+        /// 对换两个同学的座位号
+        /// </summary>
+        /// <param name="stu1">第一个学生座位号</param>
+        /// <param name="stu2">第二个学生座位号</param>
+        /// <returns>两个座位号对调</returns>
+        static void Swap(ref string stu1, ref string stu2)
+        {
+            string mid;
+            mid = stu1;
+            stu1 = stu2;
+            stu2 = mid;
+            Console.WriteLine(stu1 + "," + stu2);
+        }
+
+        /// <summary>
+        /// 制定任意项的等差数列
+        /// </summary>
+        /// <param name="min">首项</param>
+        /// <param name="gap">差距</param>
+        /// <param name="length">项数</param>
+        /// <returns>一维等差数组</returns>
+        static int[] GetArray(int min=1,int gap=5,int length=10)
+        {
+           
+            int[] array = new int[length];
+            array[0] = min;//第一项
+            //Console.Write(array[0] + "\t");
+            for (int i = 1; i < length; i++)
+            {
+                array[i] = array[i - 1] + gap;
+                //Console.Write(array[i] + "\t");
+            }
+            //Console.Write("\n");
+            return array;
+        }
     }
 }
