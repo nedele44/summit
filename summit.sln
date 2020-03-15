@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yiqibang", "yiqibang\yiqiba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "homeWork", "CSharp\homeWork.csproj", "{89E79EC6-DD24-4011-A2B0-EC53241F530A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{1C0585A0-D842-4878-A4CA-A115CA19C75F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{89E79EC6-DD24-4011-A2B0-EC53241F530A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E79EC6-DD24-4011-A2B0-EC53241F530A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E79EC6-DD24-4011-A2B0-EC53241F530A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0585A0-D842-4878-A4CA-A115CA19C75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0585A0-D842-4878-A4CA-A115CA19C75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0585A0-D842-4878-A4CA-A115CA19C75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0585A0-D842-4878-A4CA-A115CA19C75F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -431,6 +431,26 @@ namespace ConsoleApp1
                 //    Console.Write(reslut[i]+ "\t");
                 //}
             }
+
+            //二分法寻找数组中的数字，并输出下标，考虑没有找到的情况
+            {
+                //int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+                //int end = 8;
+                //int start = 0;
+                //int khey = 10;
+                //int result = binary_search(arr, end, khey, start);
+                //Console.WriteLine(result < 0 ? "找不到你输入的值" : "你所找的数的下标为" + result); ;
+            }
+
+            //将登陆的过程封装成一个方法LogOn()
+            {
+                //string ErrInfo;
+                //string UserName = Console.ReadLine();
+                //string PassWord = Console.ReadLine();
+                //string VerifiCode = Console.ReadLine();
+                //bool result = LogOn(UserName, PassWord, VerifiCode, out ErrInfo);
+                //Console.WriteLine(ErrInfo);
+            }
         }
 
 
@@ -607,9 +627,9 @@ namespace ConsoleApp1
         /// <param name="gap">差距</param>
         /// <param name="length">项数</param>
         /// <returns>一维等差数组</returns>
-        static int[] GetArray(int min=1,int gap=5,int length=10)
+        static int[] GetArray(int min = 1, int gap = 5, int length = 10)
         {
-           
+
             int[] array = new int[length];
             array[0] = min;//第一项
             //Console.Write(array[0] + "\t");
@@ -621,5 +641,103 @@ namespace ConsoleApp1
             //Console.Write("\n");
             return array;
         }
+
+        /// <summary>
+        /// 二分法查找数组中数据，并返回所在位置
+        /// </summary>
+        /// <param name="arr">数组</param>
+        /// <param name="start">首项下标</param>
+        /// <param name="end">尾项下标</param>
+        /// <param name="khey">需要寻找的值</param>
+        /// <returns></returns>
+        static int binary_search(int[] arr, int end, int khey, int start = 0)
+        {
+            int mid;
+            //此方法的精髓在于start和end随着mid的变动
+            while (start <= end)
+            {
+                mid = (start + end) / 2;
+                if (arr[mid] < khey)
+                    start = mid + 1;
+                else if (arr[mid] > khey)
+                    end = mid - 1;
+                else
+                    return mid;
+            }
+            return -1;
+        }
+
+        /// <summary>
+        /// 登录的过程封装
+        /// </summary>
+        /// <param name="UserName">用户名</param>
+        /// <param name="PassWord">密码</param>
+        /// <param name="VerifiCode">验证码</param>
+        /// <param name="ErrInfo">登录失败的原因</param>
+        /// <returns>true/false</returns>
+        static bool LogOn(string UserName, string PassWord, string VerifiCode, out string ErrInfo)
+        {
+            bool result = false;
+            //数据库里的数据
+            string adminUser = "赵淼";
+            string adminPW = "5603214";
+            string RandomCode = "6541";
+
+            if (UserName == adminUser)
+            {
+                if (PassWord == adminPW)
+                {
+                    if (VerifiCode == RandomCode)
+                    {
+                        result = true;
+                        ErrInfo = "登录成功";
+                    }
+                    else
+                    {
+                        ErrInfo = "验证码输入错误";
+                    }
+
+                }
+                else
+                {
+                    if (VerifiCode == RandomCode)
+                    {
+                        ErrInfo = "密码输入错误";
+                    }
+                    else
+                    {
+                        ErrInfo = "密码输入错误,验证码输入错误";
+                    }
+                }
+            }
+            else
+            {
+                if (PassWord == adminPW)
+                {
+                    if (VerifiCode == RandomCode)
+                    {
+                        ErrInfo = "用户名输入错误";
+                    }
+                    else
+                    {
+                        ErrInfo = "用户名输入错误,验证码输入错误";
+                    }
+                }
+                else
+                {
+                    if (VerifiCode == RandomCode)
+                    {
+                        ErrInfo = "用户名输入错误,密码输入错误";
+                    }
+                    else
+                    {
+                        ErrInfo = "用户名输入错误,密码输入错误,验证码输入错误";
+                    }
+                }
+            }
+            return result;
+        }
     }
+
+
 }
