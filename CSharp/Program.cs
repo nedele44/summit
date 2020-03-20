@@ -10,6 +10,12 @@ namespace ConsoleApp1
         {
             User User = new User();
             User zhaomiao = new User("hahaha");
+            //调用构造函数
+
+
+            Problem wuqi = new Problem();
+            Console.WriteLine(wuqi[1]);
+            //设置索引器并应用，这里输出的是字符串的第二个，剑
 
 
 

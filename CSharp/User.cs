@@ -61,7 +61,13 @@ namespace yiqibang
         //public string Password { set；}
 
 
-//下面是审错题，瞎做的，浪费了不少时间，
+
+
+//下面是审错题，瞎做的，浪费了不少时间
+
+
+
+
         private string rePassword;//验证密码
         //验证密码有必要设置为字段吗，我想是有必要的
         //因为每个人都需要输入吧，邀请人和邀请码也一样
@@ -192,7 +198,7 @@ namespace yiqibang
                 }
                 else
                 {
-                    if (password != password)
+                    if (password != _password)
                     {
                         Console.WriteLine("密码错误");
                     }

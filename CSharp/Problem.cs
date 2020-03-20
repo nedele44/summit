@@ -9,8 +9,8 @@ namespace yiqibang
     /// </summary>
     class Problem
     {
-        private string Title;
-        private string Body;
+        private string Title { get; set; }
+        private string Body { get; set; }
         private int _reward;
         //problem.Reward不能为负数
         public int Reward
@@ -27,6 +27,19 @@ namespace yiqibang
             }
 
         }
+
+        //一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写。
+        //设置一个字段来保存数据
+        private string[] _keyword = { "刀", "剑", "弓", "枪", "炮", "拳", "标" };
+        public string this[int index]
+        //这里是this关键字和[]运算符，跟数组有点像
+        {
+            get { return _keyword[index]; }
+            set { _keyword[index] = value; }
+        }
+        //这里跟字段的设置与输出一样
+
+
 
         private string PublishDateTime;
         //时间用啥访问修饰符，我觉得用private，可以多处使用名称，不显示重复
