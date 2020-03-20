@@ -10,9 +10,58 @@ namespace yiqibang
     class User
     //定义一个User类来完成注册和登录功能
     {
-        private string Name;//用户名
-        private string Password;//密码
+        /// <summary>
+        /// 无参构造函数
+        /// </summary>
+        public User()
+        {
+            
+        }
+        /// <summary>
+        /// 有参构造函数
+        /// </summary>
+        /// <param name="_name"></param>
+        public User(string _name)
+        {
+            Console.WriteLine("相濡以沫，不如相忘于江湖");
+        }
 
+
+
+        private string _name;//用户名
+        //如果user.Name为“admin”，输入是修改为“系统管理员”
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (value=="admin")
+                {
+                    Console.WriteLine("系统管理员");
+                    return;
+                }
+                _name = value;
+            }
+        }
+
+        private string _password;//密码
+        //user.Password 在类的外部只能改不能读
+
+        //第一种写法
+        //internal void setPassword(string password)
+        //{
+        //    _Password = password;
+        //}
+        //第二种写法
+        public string Password
+        {
+            set { _password = value; }
+        }
+        //第三种写法
+        //public string Password { set；}
+
+
+//下面是审错题，瞎做的，浪费了不少时间，
         private string rePassword;//验证密码
         //验证密码有必要设置为字段吗，我想是有必要的
         //因为每个人都需要输入吧，邀请人和邀请码也一样
@@ -75,8 +124,8 @@ namespace yiqibang
         /// <returns>如果是true说明可以注册，反正不行</returns>
         public bool InviteSuccess(string person, string code)
         {
-           
-           
+
+
             //这里暂时设定只有一个邀请人和邀请码
             if (person != InvitedBy)
             {
@@ -103,17 +152,17 @@ namespace yiqibang
         /// <param name="name">用户名</param>
         /// <param name="password">密码</param>
         /// <param name="verificationcode">验证码</param>
-        public void Register(string name,string password,string repassword,string verificationcode)
+        public void Register(string name, string password, string repassword, string verificationcode)
         {
-            if (verificationcode!="5656")
-                //验证的自动生成这里暂时不考虑
+            if (verificationcode != "5656")
+            //验证的自动生成这里暂时不考虑
             {
                 Console.WriteLine("验证码错误，注册失败");
             }
             else
             {
-                if (password!=repassword)
-                    //两次输入的密码要相同
+                if (password != repassword)
+                //两次输入的密码要相同
                 {
                     Console.WriteLine("密码设置有误，注册失败");
                 }
@@ -143,7 +192,7 @@ namespace yiqibang
                 }
                 else
                 {
-                    if (password != Password)
+                    if (password != password)
                     {
                         Console.WriteLine("密码错误");
                     }
