@@ -4,7 +4,7 @@ using System.Text;
 
 namespace yiqibang
 {
-    class HelpMoney
+    public class HelpMoney
     {
         private string Username;
         //用户名

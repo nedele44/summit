@@ -7,10 +7,19 @@ namespace yiqibang
     /// <summary>
     /// 求助板块
     /// </summary>
-    class Problem
+    public class Problem
     {
+        //每一个Problem对象一定有Body赋值
+        //每实例化一个对象是，都会执行构造函数
+        //只要Body赋值行为在构造函数里，就可以实现无论是哪个实例或者说实例名，都有这一种行为
+        //一句话总结是 把实例化写在构造函数里
+        public Problem(string body)
+        {
+            this.Body = body;
+        }
+
         private string Title { get; set; }
-        private string Body { get; set; }
+        public string Body;
         private int _reward;
         //problem.Reward不能为负数
         public int Reward

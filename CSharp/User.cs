@@ -4,19 +4,28 @@ using System.Text;
 
 namespace yiqibang
 {
+    
+
     /// <summary>
     /// 用户类
     /// </summary>
-    class User
+    public class User
     //定义一个User类来完成注册和登录功能
     {
-        /// <summary>
-        /// 无参构造函数
-        /// </summary>
-        public User()
+        //每一个User对象一定有Name和Password赋值
+        //构造函数里实例化，name和password为两个字符串
+        public User(string name, string password)
         {
-            
+            this._name = name;
+            this._password = password;
         }
+        /// <summary>
+        /// 无参构造函数，一般隐藏
+        /// </summary>
+        //public User()
+        //{
+
+        //}
         /// <summary>
         /// 有参构造函数
         /// </summary>
@@ -56,6 +65,7 @@ namespace yiqibang
         public string Password
         {
             set { _password = value; }
+            get { return _password; }
         }
         //第三种写法
         //public string Password { set；}
@@ -64,9 +74,6 @@ namespace yiqibang
 
 
 //下面是审错题，瞎做的，浪费了不少时间
-
-
-
 
         private string rePassword;//验证密码
         //验证密码有必要设置为字段吗，我想是有必要的
@@ -152,7 +159,7 @@ namespace yiqibang
             }
         }
         /// <summary>
-        /// 这里不考虑重名的问题把，竟然不考虑与数据库有关的问题
+        /// 这里不考虑重名的问题把，依然不考虑与数据库有关的问题
         /// 也不考虑密码的格式等
         /// </summary>
         /// <param name="name">用户名</param>

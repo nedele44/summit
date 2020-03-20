@@ -8,16 +8,28 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            User User = new User();
-            User zhaomiao = new User("hahaha");
             //调用构造函数
+            User zhaomiao = new User("hahaha");
 
 
-            Problem wuqi = new Problem();
+            //设置索引器并调用，这里输出的是字符串的第二个，剑
+            Problem wuqi = new Problem("相濡以沫，不如相忘于江湖");
             Console.WriteLine(wuqi[1]);
-            //设置索引器并应用，这里输出的是字符串的第二个，剑
 
+            //每一个Problem对象一定有Body赋值
+            //这里也就是说不用执行wuqi.body= 这样的语句
+            Console.WriteLine(wuqi.Body);
 
+            //如果为空字符串呢
+            //并没有报错，运行结果啥都没有
+            //如果把构造函数去掉呢，立马报错
+            Problem meinv = new Problem("");
+            Console.WriteLine(meinv.Body);
+
+            //每一个User对象一定有Name和Password赋值
+            User zhima = new User("zhima","545646748");
+            Console.WriteLine(zhima.Name);
+            Console.WriteLine(zhima.Password);
 
 
             //下面是因为题意搞错瞎弄的
