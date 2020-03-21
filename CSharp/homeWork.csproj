@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Entity\history.csproj" />
+    <ProjectReference Include="..\Library\Entity.csproj" />
   </ItemGroup>
 
 </Project>

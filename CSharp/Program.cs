@@ -1,5 +1,6 @@
 ﻿using System;
-using yiqibang;
+using Entity;
+//需要点击homework中Dependencies来与Entity进行引用连接
 //同一个项目下，不同名称空间类的引用
 
 namespace ConsoleApp1
@@ -30,6 +31,21 @@ namespace ConsoleApp1
             User zhima = new User("zhima","545646748");
             Console.WriteLine(zhima.Name);
             Console.WriteLine(zhima.Password);
+
+
+            //单例模式
+            //构造函数private后，new一个对象都没法实现
+            //FactoryContext test = new FactoryContext();
+            //下面语句应该会输出构造函数的内容
+            FactoryContext.getInstance();
+            //也就说没法new一个对象，或只有一个对象Instance，或者说要实例化需在自己类里来
+
+
+
+
+
+
+
 
 
             //下面是因为题意搞错瞎弄的

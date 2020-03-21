@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace yiqibang
+namespace Entity
 {
     /// <summary>
     /// 求助板块
@@ -53,8 +53,38 @@ namespace yiqibang
         private string PublishDateTime;
         //时间用啥访问修饰符，我觉得用private，可以多处使用名称，不显示重复
         private string Author;
-        public void Publish()
+        /// <summary>
+        /// Publish 我觉得可以是静态方法，每个求助类的实例都需要将其内容保存到数据库
+        /// 这里是不是可以说，涉及到存储操作，也就是针对集合（数组，元组，堆栈）的增删改，尽量用静态方法
+        /// 毕竟这是对所有已经实例化的大集合的操作，整体性的操作，不是单个实例的操作
+        /// </summary>
+        public static void Publish()
         {
         }
+      
+        /// <summary>
+        /// Load 我觉得也要用static，这只是针对大集合的取值
+        /// 在数据库中已经抽象成了ID，就不需要用实例了吧，
+        /// </summary>
+        /// <param name="Id">某篇求助的地址</param>
+        /// <returns>一条求助</returns>
+        public static string[] Load(int Id)
+        {
+            string[] all = { "title", "keyword", "body" };
+            return all;
+        }
+        /// <summary>
+        /// Delete 根据Id删除某个求助
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public static string[] Delete(int Id)
+        {
+            string[] all = { "title", "keyword", "body" };
+            return all;
+        }
+        
+        
+        
     }
 }
