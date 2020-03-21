@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "homeWork", "CSharp\homeWork
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "history", "Entity\history.csproj", "{1C0585A0-D842-4878-A4CA-A115CA19C75F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{8CA4630B-DB22-4901-B16F-1D48B2099AD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Library\Entity.csproj", "{8CA4630B-DB22-4901-B16F-1D48B2099AD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
