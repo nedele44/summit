@@ -1,9 +1,10 @@
 ﻿using System;
 using Entity;
+using homeWork;
 //需要点击homework中Dependencies来与Entity进行引用连接
 //同一个项目下，不同名称空间类的引用
 
-namespace ConsoleApp1
+namespace homework
 {
     class Program
     {
@@ -28,7 +29,7 @@ namespace ConsoleApp1
             Console.WriteLine(meinv.Body);
 
             //每一个User对象一定有Name和Password赋值
-            User zhima = new User("zhima","545646748");
+            User zhima = new User("zhima", "545646748");
             Console.WriteLine(zhima.Name);
             Console.WriteLine(zhima.Password);
 
@@ -41,6 +42,19 @@ namespace ConsoleApp1
             //也就说没法new一个对象，或只有一个对象Instance，或者说要实例化需在自己类里来
 
 
+
+            //出栈入栈检查检查
+            bool full;
+            bool empty;
+            MimicStack a = new MimicStack(3);
+            a.Push(1, out full);
+            a.Push(2, out full);
+            a.Push(2, out full);
+            Console.WriteLine(a.Pop(out empty) == 2);
+            Console.WriteLine(a.Pop(out empty) == 2);
+            Console.WriteLine(a.Pop(out empty) == 1);
+            //下面这个既输出了false，也输出了“栈以空”，是因为返回了一个-1的值
+            Console.WriteLine(a.Pop(out empty) == 1);
 
 
 
