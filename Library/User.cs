@@ -9,7 +9,7 @@ namespace Entity
     /// <summary>
     /// 用户类,添加sealed让User类无法被继承
     /// </summary>
-    sealed public class User
+public class User
     //定义一个User类来完成注册和登录功能
     {
         //每一个User对象一定有Name和Password赋值
@@ -22,17 +22,18 @@ namespace Entity
         /// <summary>
         /// 无参构造函数，一般隐藏
         /// </summary>
-        //public User()
-        //{
-
-        //}
+        public User()
+        {
+            //生成一个用户时，默认的初始帮帮币为100
+            HelpCreit = 100;
+        }
         /// <summary>
         /// 有参构造函数
         /// </summary>
         /// <param name="_name"></param>
-        public User(string _name)
+        public User(string _name):this()
         {
-            Console.WriteLine("相濡以沫，不如相忘于江湖");
+            //Console.WriteLine("相濡以沫，不如相忘于江湖");
         }
 
 
@@ -72,7 +73,7 @@ namespace Entity
 
 
         //用户的棒棒币
-        public int HelpCreit = 0;
+        public int HelpCreit ;
 
 
 

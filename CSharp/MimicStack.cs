@@ -14,7 +14,7 @@ namespace homeWork
         //实例每push一个top就跟着加1，每pop一个top减1，初始值为0,
         private static int top;
         // 申明一个数组来表示栈,此时的数组为空null
-        public static int[] container;
+        private static int[] container;
         /// <summary>
         /// 构造函数，在new一个对象时就设置栈的深度
         /// </summary>
@@ -33,8 +33,8 @@ namespace homeWork
         public void Push(int value, out bool full)
         {
 
-            //当full=1时，表示栈以满
-            //当出现栈以满的时候，top已经和length相等了，但是比输入的个数大1个了，所以在输出的时候要先减1个
+            //当full=true时，表示栈以满
+            //当出现栈以满的时候，top已经和length相等了
             full = top >= Length;
             if (full)
             {

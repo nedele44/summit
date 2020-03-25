@@ -9,6 +9,7 @@ namespace Entity
 
         public Article() : base("article")
         {
+
             top = 0;
         }
         //Article相对于意见建议和求助，不同点在于，Article有关键字,最多只能有5个关键字
@@ -32,6 +33,13 @@ namespace Entity
               
         }
 
+        //如果发布Article，需要消耗一个帮帮币
+        public override void Publish()
+        {
+            //HelpCreit在User类中，只能是User类型加字段，来表示具有意义
+            Author.HelpCreit--;
+            Console.WriteLine("这是篇文章");
+        }
 
     }
 }

@@ -14,10 +14,10 @@ namespace Entity
         //每实例化一个对象是，都会执行构造函数
         //只要Body赋值行为在构造函数里，就可以实现无论是哪个实例或者说实例名，都有这一种行为
         //一句话总结是 把实例化写在构造函数里
-        public Problem(string body):base("Problem")
-        {
-            this.Body = body;
-        }
+        //public Problem(string body):base("Problem")
+        //{
+        //    this.Body = body;
+        //}
 
         
         private int _reward;
@@ -50,16 +50,14 @@ namespace Entity
 
 
 
-        private string PublishDateTime;
-        //时间用啥访问修饰符，我觉得用private，可以多处使用名称，不显示重复
-      
-        /// <summary>
-        /// Publish 我觉得可以是静态方法，每个求助类的实例都需要将其内容保存到数据库
-        /// 这里是不是可以说，涉及到存储操作，也就是针对集合（数组，元组，堆栈）的增删改，尽量用静态方法
-        /// 毕竟这是对所有已经实例化的大集合的操作，整体性的操作，不是单个实例的操作
-        /// </summary>
-        public static void Publish()
+
+
+        //如果发布Problem，需要消耗其设置悬赏数量的帮帮币
+        //也就是说在发布一个求助时，先设置消耗的金币，那这个需要引入一个参数，Consume 消耗、消费
+        public override void Publish(int Consume)
         {
+            Author.HelpCreit = Author.HelpCreit - Consume;
+            Console.WriteLine("这是一个求助");
         }
       
         /// <summary>

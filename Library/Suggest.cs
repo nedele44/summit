@@ -10,5 +10,13 @@ namespace Entity
         {
 
         }
+        //基类有Id属性，子类也可以有Id属性
+        private string Id { get; }
+
+        //如果发布Suggest，不需要消耗帮帮币
+        public override void Publish()
+        {
+            Console.WriteLine("这是一个意见建议");
+        }
     }
 }

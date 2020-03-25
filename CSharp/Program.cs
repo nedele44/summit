@@ -70,7 +70,7 @@ namespace homework
             ////我在父类中设计了一个输出点踩和点赞的方法，这里先尝试继承父类点赞的操作
             //User zhao = new User("zhao");
             //User zhang = new User("zhang");
-            //Article a1 = new Article() { Author=zhaomiao};
+            //Article a1 = new Article() { Author = zhaomiao };
             //Console.WriteLine(a1.Praise(zhao));
             //Console.WriteLine(a1.Praise(zhang));
             ////输出的结果为1,2，也就是说在生成的对象中，有几个点赞，就帮帮币就会加几个
@@ -92,14 +92,39 @@ namespace homework
             //a2.Push("刀剑神域",out full);
             //a2.Push("刀剑神域",out full);
             //a2.Push("刀剑神域",out full);
-           
+
             //for (int i = 0; i <5; i++)
             //{
             //    Console.WriteLine(a2.Keyword[i]);
             //}
-           
 
-            
+            //调用article类的publish方法
+            //Author是一个User类型，就一定要事先创建一个User类对象，才能进行赋值
+            User zhaomiao = new User("赵淼");
+            Content a = new Article() { Author=zhaomiao};
+            //发表第一篇文章，
+            a.Publish();
+            //发表第二篇文章
+            a.Publish();
+
+
+            //调用problem类的publish方法
+
+            Content b = new Problem() { Author = zhaomiao };
+            b.Publish(50);
+
+
+            //调用suggest类的Publish方法
+            Content c = new Suggest() { Author = zhaomiao };
+            c.Publish();
+
+            //Content类的实例化，可以是Article 也可以是Problem，同时也可以是Suggest，不同的对象，同样的方法，得到的结果不同
+
+
+
+
+
+
 
             //下面是因为题意搞错瞎弄的
             //////我首先要做一个判断邀请和邀请码是否正确
