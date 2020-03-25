@@ -47,14 +47,17 @@ namespace Entity
         //    set { _keyword[index] = value; }
         //}
         //这里跟字段的设置与输出一样
+        public Problem(int consume)
+        {
+            this.Consume = consume;
+        }
 
 
-
-
+        private int Consume;
 
         //如果发布Problem，需要消耗其设置悬赏数量的帮帮币
         //也就是说在发布一个求助时，先设置消耗的金币，那这个需要引入一个参数，Consume 消耗、消费
-        public override void Publish(int Consume)
+        public override void Publish()
         {
             Author.HelpCreit = Author.HelpCreit - Consume;
             Console.WriteLine("这是一个求助");

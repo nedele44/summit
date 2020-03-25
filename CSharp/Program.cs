@@ -110,8 +110,9 @@ namespace homework
 
             //调用problem类的publish方法
 
-            Content b = new Problem() { Author = zhaomiao };
-            b.Publish(50);
+            Content b = new Problem(40) { Author = zhaomiao };
+           
+            b.Publish();
 
 
             //调用suggest类的Publish方法
