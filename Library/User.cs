@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Entity
 {
-    
+
 
     /// <summary>
-    /// 用户类
+    /// 用户类,添加sealed让User类无法被继承
     /// </summary>
-    public class User
+    sealed public class User
     //定义一个User类来完成注册和登录功能
     {
         //每一个User对象一定有Name和Password赋值
@@ -44,7 +44,7 @@ namespace Entity
             get { return _name; }
             set
             {
-                if (value=="admin")
+                if (value == "admin")
                 {
                     Console.WriteLine("系统管理员");
                     return;
@@ -71,9 +71,12 @@ namespace Entity
         //public string Password { set；}
 
 
+        //用户的棒棒币
+        public int HelpCreit = 0;
 
 
-//下面是审错题，瞎做的，浪费了不少时间
+
+        //下面是审错题，瞎做的，浪费了不少时间
 
         private string rePassword;//验证密码
         //验证密码有必要设置为字段吗，我想是有必要的
