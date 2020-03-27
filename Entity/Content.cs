@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Entity
 {
-    public class Content:ContentService
+    //Content 应该选择为抽象类，而不是接口，在我创建的类里，除了有抽象方法，还有其他的实现
+    public abstract class Content:ContentService
     {
         /// <summary>
         /// 无参构造函数，生成目前的时间
@@ -49,28 +50,32 @@ namespace Entity
         /// </summary>
         /// <param name="voter">代表点赞人的参数</param>
         /// <returns>作者的帮帮币</returns>
-        public int Praise(User voter)
-        {
-            //初始点赞应该是0，每点一个加1，那么有多少帮帮币，说明点了多少赞
-            Author.HelpCreit++;
-            voter.HelpCreit--;
-            return Author.HelpCreit;
-        }
+        //public int Praise(User voter)
+        //{
+        //    //初始点赞应该是0，每点一个加1，那么有多少帮帮币，说明点了多少赞
+        //    Author.HelpCreit++;
+        //    voter.HelpCreit--;
+        //    return Author.HelpCreit;
+        //}
+
+            //点赞和点踩的抽象
+        public abstract int Praise(User voter);
+        public abstract int Tread(User voter);
 
 
-        //假设点踩与作者的棒棒币无关，则需要申明一个静态字段来存储点踩值
-        public static int tread = 0;
+        
+        //public static int tread = 0;
         /// <summary>
-        /// 显示点踩得个数，获得一个踩，作者的棒棒币没变化，但是点踩的人少一个棒棒币
+        /// 显示点踩得个数，获得一个踩，作者的棒棒币和点踩的人少一个棒棒币
         /// </summary>
         /// <param name="voter">点踩得人</param>
         /// <returns></returns>
-        public int Tread(User voter)
-        {
-            tread++;
-            voter.HelpCreit--;
-            return tread;
-        }
+        //public int Tread(User voter)
+        //{
+        //    Author.HelpCreit--;
+        //    voter.HelpCreit--;
+        //    return Author.HelpCreit;
+        //}
 
 
     }

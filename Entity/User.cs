@@ -9,7 +9,7 @@ namespace Entity
     /// <summary>
     /// 用户类,添加sealed让User类无法被继承
     /// </summary>
-public class User
+public class User:IChat,ISendMessage
     //定义一个User类来完成注册和登录功能
     {
         //每一个User对象一定有Name和Password赋值
@@ -36,6 +36,16 @@ public class User
             //Console.WriteLine("相濡以沫，不如相忘于江湖");
         }
 
+        //实现接口，由于两个接口都有申明，Send方法，就采用显示实现
+        void IChat.Send()
+        {
+            Console.WriteLine("骑马射箭");
+        }
+
+        void ISendMessage.Send()
+        {
+            Console.WriteLine("声东击西");
+        }
 
 
         private string _name;//用户名

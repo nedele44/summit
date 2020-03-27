@@ -100,24 +100,24 @@ namespace homework
 
             //调用article类的publish方法
             //Author是一个User类型，就一定要事先创建一个User类对象，才能进行赋值
-            User zhaomiao = new User("赵淼");
-            Content a = new Article() { Author=zhaomiao};
-            //发表第一篇文章，
-            a.Publish();
-            //发表第二篇文章
-            a.Publish();
+            //User zhaomiao = new User("赵淼");
+            //Content a = new Article() { Author=zhaomiao};
+            ////发表第一篇文章，
+            //a.Publish();
+            ////发表第二篇文章
+            //a.Publish();
 
 
-            //调用problem类的publish方法
+            ////调用problem类的publish方法
 
-            Content b = new Problem(40) { Author = zhaomiao };
+            //Content b = new Problem(40) { Author = zhaomiao };
            
-            b.Publish();
+            //b.Publish();
 
 
-            //调用suggest类的Publish方法
-            Content c = new Suggest() { Author = zhaomiao };
-            c.Publish();
+            ////调用suggest类的Publish方法
+            //Content c = new Suggest() { Author = zhaomiao };
+            //c.Publish();
 
             //Content类的实例化，可以是Article 也可以是Problem，同时也可以是Suggest，不同的对象，同样的方法，得到的结果不同
 
