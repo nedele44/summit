@@ -111,7 +111,7 @@ namespace homework
             ////调用problem类的publish方法
 
             //Content b = new Problem(40) { Author = zhaomiao };
-           
+
             //b.Publish();
 
 
@@ -120,6 +120,56 @@ namespace homework
             //c.Publish();
 
             //Content类的实例化，可以是Article 也可以是Problem，同时也可以是Suggest，不同的对象，同样的方法，得到的结果不同
+
+
+
+
+            ////证明struct定义的类型为值类型
+            //static void add(isValueType valuetype)
+            //{
+            //    valuetype.a1++;
+            //}
+            ////先定义一个struct类型valuetype
+            //isValueType valuetype = new isValueType();
+            //valuetype.a1 = 10;
+            //add(valuetype);
+            //Console.WriteLine(valuetype.a1);
+            ////如果输出的值为10，说明为值类型
+
+            ////在来验证class定义的类型为引用类型
+            //static void add1(isRefType reftype)
+            //{
+            //    reftype.a2++;
+            //}
+            ////在定义一个class类型reftype
+            //isRefType reftype = new isRefType();
+            //reftype.a2 = 10;
+            //add1(reftype);
+            //Console.WriteLine(reftype.a2);
+            ////如果输出为11说明为引用类型
+
+
+
+
+
+            //函数GetDate()，能计算一个日期若干（日/周/月）后的日期
+            Mytime a = new Mytime();
+            DateTime date = new DateTime(2020, 3, 28);
+            Console.WriteLine(a.GetDate(date,5,"day")==new DateTime(2020,4,2)); 
+            Console.WriteLine(a.GetDate(date,5,"day")==new DateTime(2020,4,3));
+            Console.WriteLine(a.GetDate(date, 5, "week") == new DateTime(2020, 4, 2));
+            Console.WriteLine(a.GetDate(date, 5, "week").ToString("yyyy年MM月dd日"));
+            Console.WriteLine(a.GetDate(date, 5, "month").ToString("yyyy年MM月dd日"));
+            Console.WriteLine(a.GetDate(date, 45, "month").ToString("yyyy年MM月dd日"));
+            Console.WriteLine(a.GetDate(date, 365*3, "day").ToString("yyyy年MM月dd日"));
+            Console.WriteLine(a.GetDate(date, -1, "day").ToString("yyyy年MM月dd日"));
+            Console.WriteLine(a.GetDate(date, 5, "gui").ToString("yyyy年MM月dd日"));
+
+
+
+
+
+
 
 
 

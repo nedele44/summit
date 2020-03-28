@@ -40,6 +40,17 @@ namespace Entity
             Author.HelpCreit--;
             Console.WriteLine("这是篇文章");
         }
-
+        public override int Praise(User voter)
+        {
+            Author.HelpCreit++;
+            voter.HelpCreit--;
+            return Author.HelpCreit;
+        }
+        public override int Tread(User voter)
+        {
+            Author.HelpCreit--;
+            voter.HelpCreit--;
+            return Author.HelpCreit;
+        }
     }
 }

@@ -84,8 +84,20 @@ namespace Entity
             string[] all = { "title", "keyword", "body" };
             return all;
         }
-        
-        
-        
+
+
+        public override int Praise(User voter)
+        {
+            Author.HelpCreit++;
+            voter.HelpCreit--;
+            return Author.HelpCreit;
+        }
+        public override int Tread(User voter)
+        {
+            Author.HelpCreit--;
+            voter.HelpCreit--;
+            return Author.HelpCreit;
+        }
+
     }
 }
