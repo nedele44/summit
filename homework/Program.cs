@@ -154,17 +154,19 @@ namespace homework
 
             //函数GetDate()，能计算一个日期若干（日/周/月）后的日期
             Mytime a = new Mytime();
-            DateTime date = new DateTime(2020, 3, 28);
-            Console.WriteLine(a.GetDate(date,5,"day")==new DateTime(2020,4,2)); 
-            Console.WriteLine(a.GetDate(date,5,"day")==new DateTime(2020,4,3));
-            Console.WriteLine(a.GetDate(date, 5, "week") == new DateTime(2020, 4, 2));
-            Console.WriteLine(a.GetDate(date, 5, "week").ToString("yyyy年MM月dd日"));
-            Console.WriteLine(a.GetDate(date, 5, "month").ToString("yyyy年MM月dd日"));
-            Console.WriteLine(a.GetDate(date, 45, "month").ToString("yyyy年MM月dd日"));
-            Console.WriteLine(a.GetDate(date, 365*3, "day").ToString("yyyy年MM月dd日"));
-            Console.WriteLine(a.GetDate(date, -1, "day").ToString("yyyy年MM月dd日"));
-            Console.WriteLine(a.GetDate(date, 5, "gui").ToString("yyyy年MM月dd日"));
+            //DateTime date = new DateTime(2020, 3, 28);
+            //Console.WriteLine(a.GetDate(date,5,"day")==new DateTime(2020,4,2)); 
+            //Console.WriteLine(a.GetDate(date,5,"day")==new DateTime(2020,4,3));
+            //Console.WriteLine(a.GetDate(date, 5, "week") == new DateTime(2020, 4, 2));
+            //Console.WriteLine(a.GetDate(date, 5, "week").ToString("yyyy年MM月dd日"));
+            //Console.WriteLine(a.GetDate(date, 5, "month").ToString("yyyy年MM月dd日"));
+            //Console.WriteLine(a.GetDate(date, 45, "month").ToString("yyyy年MM月dd日"));
+            //Console.WriteLine(a.GetDate(date, 365*3, "day").ToString("yyyy年MM月dd日"));
+            //Console.WriteLine(a.GetDate(date, -1, "day").ToString("yyyy年MM月dd日"));
+            //Console.WriteLine(a.GetDate(date, 5, "gui").ToString("yyyy年MM月dd日"));
 
+            //a.EveryWeek(2020);
+            a.EveryWeek(1991);
 
 
 
