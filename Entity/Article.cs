@@ -37,20 +37,20 @@ namespace Entity
         public override void Publish()
         {
             //HelpCreit在User类中，只能是User类型加字段，来表示具有意义
-            Author.HelpCreit--;
+            author.HelpCreit--;
             Console.WriteLine("这是篇文章");
         }
         public override int Praise(User voter)
         {
-            Author.HelpCreit++;
+            author.HelpCreit++;
             voter.HelpCreit--;
-            return Author.HelpCreit;
+            return author.HelpCreit;
         }
         public override int Tread(User voter)
         {
-            Author.HelpCreit--;
+            author.HelpCreit--;
             voter.HelpCreit--;
-            return Author.HelpCreit;
+            return author.HelpCreit;
         }
     }
 }

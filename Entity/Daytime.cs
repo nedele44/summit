@@ -53,7 +53,7 @@ namespace Entity
         public  int firstMonday;//这个用来确定一年中第一个星期一是一月几号
         public void EveryWeek(int year)
         {
-            DateTime fristofYear = new DateTime(year, 1, 1);
+            DateTime fristofYear = new DateTime(year, 1, 1);//生产
             string dt = fristofYear.DayOfWeek.ToString();
 
             switch (dt)

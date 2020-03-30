@@ -5,7 +5,7 @@ using System.Text;
 namespace Entity
 {
     //Content 应该选择为抽象类，而不是接口，在我创建的类里，除了有抽象方法，还有其他的实现
-    public abstract class Content:ContentService
+    public abstract class Content : ContentService
     {
         /// <summary>
         /// 无参构造函数，生成目前的时间
@@ -18,7 +18,7 @@ namespace Entity
         public string kind;
         //Content中有一个字段：kind，记录内容的种类（problem/article/suggest等），只能被子类使用
         //确保每个Content对象都有kind的非空值,也就是说参数kind有个默认值
-        public Content(string kind = "content"):this()
+        public Content(string kind = "content") : this()
         {
             this.kind = kind;
         }
@@ -26,9 +26,9 @@ namespace Entity
         //这里输出的应该是datatime类型，赋值过程在构造函数中进行
         private DateTime CreatTime;
 
-        
+
         //只读属性PublishTime使用它为外部提供内容的发布时间
-        private DateTime PublishTime { get{ return CreatTime; } }
+        private DateTime PublishTime { get { return CreatTime; } }
 
 
 
@@ -36,13 +36,20 @@ namespace Entity
         //内容的子类有求助，文章和意见建议，据我观察，其共同点很多，比如
         //都含有标题，主题内容，和作者
         //都有显示点踩，点赞的数量，和评论框以及评论数的显示
-        private string Title { get; set; }
-        public string Body { get; set; }
+        private string title { get; set; }
+        public string body { get; set; }
         /// <summary>
         /// 这里属性的定义为User，也是自己自定义的一个类
         /// </summary>
-        public User Author { get; set; }
+        public User author { get; set; }
         //这里要用public 在多处需要用到
+
+            //在Content类中声明一个Publish的方法，供Article,Problem,和Suggest继承
+        public virtual void Publish()
+        {
+        }
+
+
 
 
         /// <summary>
@@ -58,12 +65,12 @@ namespace Entity
         //    return Author.HelpCreit;
         //}
 
-            //点赞和点踩的抽象
+        //点赞和点踩的抽象
         public abstract int Praise(User voter);
         public abstract int Tread(User voter);
 
 
-        
+
         //public static int tread = 0;
         /// <summary>
         /// 显示点踩得个数，获得一个踩，作者的棒棒币和点踩的人少一个棒棒币

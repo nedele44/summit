@@ -59,7 +59,7 @@ namespace Entity
         //也就是说在发布一个求助时，先设置消耗的金币，那这个需要引入一个参数，Consume 消耗、消费
         public override void Publish()
         {
-            Author.HelpCreit = Author.HelpCreit - Consume;
+            author.HelpCreit = author.HelpCreit - Consume;
             Console.WriteLine("这是一个求助");
         }
       
@@ -88,15 +88,15 @@ namespace Entity
 
         public override int Praise(User voter)
         {
-            Author.HelpCreit++;
+            author.HelpCreit++;
             voter.HelpCreit--;
-            return Author.HelpCreit;
+            return author.HelpCreit;
         }
         public override int Tread(User voter)
         {
-            Author.HelpCreit--;
+            author.HelpCreit--;
             voter.HelpCreit--;
-            return Author.HelpCreit;
+            return author.HelpCreit;
         }
 
     }

@@ -43,17 +43,26 @@ namespace homework
 
 
             ////出栈入栈检查检查
-            //bool full;
+
             //bool empty;
-            //MimicStack a = new MimicStack(3);
-            //a.Push(1, out full);
-            //a.Push(2, out full);
-            //a.Push(2, out full);
-            //Console.WriteLine(a.Pop(out empty) == 2);
-            //Console.WriteLine(a.Pop(out empty) == 2);
-            //Console.WriteLine(a.Pop(out empty) == 1);
-            ////下面这个既输出了false，也输出了“栈以空”，是因为返回了一个-1的值
-            //Console.WriteLine(a.Pop(out empty) == 1);
+            //MimicStack stacktest = new MimicStack(3);
+            //stacktest.Pop(out empty);
+            //Console.WriteLine(empty);//看新创建的栈是不是空的
+
+
+            //stacktest.Push(1);
+            //Console.WriteLine(stacktest.Pop(out empty) == 1);
+            //Console.WriteLine(empty);//判断压入一个元素是不是空栈
+            //stacktest.Push(2);
+            //stacktest.Push(3);
+            //Console.WriteLine(stacktest.Pop(out empty) == 3);//判断弹出来的是否为刚刚压入的
+            //Console.WriteLine(stacktest.Pop(out empty) == 2);
+
+            //stacktest.Pop(out empty);//判断全部元素弹出来后，是否为空
+            //Console.WriteLine(empty);
+
+
+
 
             //Content中有一个字段：kind，记录内容的种类（problem/article/suggest等），只能被子类使用
             //Content test = new Article();
@@ -100,24 +109,23 @@ namespace homework
 
             //调用article类的publish方法
             //Author是一个User类型，就一定要事先创建一个User类对象，才能进行赋值
-            //User zhaomiao = new User("赵淼");
-            //Content a = new Article() { Author=zhaomiao};
-            ////发表第一篇文章，
-            //a.Publish();
-            ////发表第二篇文章
-            //a.Publish();
+           // User zhaomiao = new User("赵淼");
+           //Article myarticle=new Article() { author=zhaomiao};
+           // //发表第一篇文章，
+           // myarticle.Publish(myarticle);
+          
 
 
-            ////调用problem类的publish方法
+           // //调用problem类的publish方法
 
-            //Content b = new Problem(40) { Author = zhaomiao };
+           // Problem problem = new Problem(40) { author = zhaomiao };
 
-            //b.Publish();
+           // problem.Publish(problem);
 
 
-            ////调用suggest类的Publish方法
-            //Content c = new Suggest() { Author = zhaomiao };
-            //c.Publish();
+           // //调用suggest类的Publish方法
+           // Content suggest= new Suggest() { author = zhaomiao };
+           // suggest.Publish(suggest);
 
             //Content类的实例化，可以是Article 也可以是Problem，同时也可以是Suggest，不同的对象，同样的方法，得到的结果不同
 
@@ -153,7 +161,7 @@ namespace homework
 
 
             //函数GetDate()，能计算一个日期若干（日/周/月）后的日期
-            Mytime a = new Mytime();
+            //Mytime weektest= new Mytime();
             //DateTime date = new DateTime(2020, 3, 28);
             //Console.WriteLine(a.GetDate(date,5,"day")==new DateTime(2020,4,2)); 
             //Console.WriteLine(a.GetDate(date,5,"day")==new DateTime(2020,4,3));
@@ -166,7 +174,7 @@ namespace homework
             //Console.WriteLine(a.GetDate(date, 5, "gui").ToString("yyyy年MM月dd日"));
 
             //a.EveryWeek(2020);
-            a.EveryWeek(1991);
+            //weektest.EveryWeek(1991);
 
 
 
@@ -208,6 +216,13 @@ namespace homework
             ////User.SetName("赵淼");
             ////User.SetPassword("99999999");
             ////User.LogOn("Name", "Password", "5656");
+            ///
+
+
+
+
+
+
         }
 
 
