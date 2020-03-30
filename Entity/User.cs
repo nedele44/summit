@@ -204,6 +204,9 @@ public class User:IChat,ISendMessage
         }
 
 
+        //User类中添加一个Tokens属性，类型为TokenManager
+        private TokenManager tokens { get; set; }
+
         //登录页面的逻辑是先验证验证码，再验证用户名，再验证密码
         public void LogOn(string username, string password, string verificode)
         {

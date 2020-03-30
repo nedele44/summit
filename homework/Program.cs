@@ -109,23 +109,23 @@ namespace homework
 
             //调用article类的publish方法
             //Author是一个User类型，就一定要事先创建一个User类对象，才能进行赋值
-           // User zhaomiao = new User("赵淼");
-           //Article myarticle=new Article() { author=zhaomiao};
-           // //发表第一篇文章，
-           // myarticle.Publish(myarticle);
-          
+            // User zhaomiao = new User("赵淼");
+            //Article myarticle=new Article() { author=zhaomiao};
+            // //发表第一篇文章，
+            // myarticle.Publish(myarticle);
 
 
-           // //调用problem类的publish方法
 
-           // Problem problem = new Problem(40) { author = zhaomiao };
+            // //调用problem类的publish方法
 
-           // problem.Publish(problem);
+            // Problem problem = new Problem(40) { author = zhaomiao };
+
+            // problem.Publish(problem);
 
 
-           // //调用suggest类的Publish方法
-           // Content suggest= new Suggest() { author = zhaomiao };
-           // suggest.Publish(suggest);
+            // //调用suggest类的Publish方法
+            // Content suggest= new Suggest() { author = zhaomiao };
+            // suggest.Publish(suggest);
 
             //Content类的实例化，可以是Article 也可以是Problem，同时也可以是Suggest，不同的对象，同样的方法，得到的结果不同
 
@@ -179,7 +179,19 @@ namespace homework
 
 
 
+            //枚举中令牌管理类的相关方法测试
 
+            TokenManager tokentest = new TokenManager(Token.Admin);
+            //先判断是否含有某个权限
+            Console.WriteLine( tokentest.Has(Token.Admin));
+            Console.WriteLine( tokentest.Has(Token.SuperAdmin));
+
+            Token resultAdd=tokentest.Add(Token.SuperAdmin);
+            Console.WriteLine(resultAdd);
+            Token resultRemove = tokentest.Remove(Token.Admin);
+            Console.WriteLine(resultRemove);
+         
+           
 
 
 
@@ -220,8 +232,7 @@ namespace homework
 
 
 
-
-
+            
 
         }
 
