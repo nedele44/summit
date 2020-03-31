@@ -181,15 +181,15 @@ namespace homework
 
             //枚举中令牌管理类的相关方法测试
 
-            TokenManager tokentest = new TokenManager(Token.Admin);
-            //先判断是否含有某个权限
-            Console.WriteLine( tokentest.Has(Token.Admin));
-            Console.WriteLine( tokentest.Has(Token.SuperAdmin));
+            //TokenManager tokentest = new TokenManager(Token.Admin);
+            ////先判断是否含有某个权限
+            //Console.WriteLine( tokentest.Has(Token.Admin));
+            //Console.WriteLine( tokentest.Has(Token.SuperAdmin));
 
-            Token resultAdd=tokentest.Add(Token.SuperAdmin);
-            Console.WriteLine(resultAdd);
-            Token resultRemove = tokentest.Remove(Token.Admin);
-            Console.WriteLine(resultRemove);
+            //Token resultAdd=tokentest.Add(Token.SuperAdmin);
+            //Console.WriteLine(resultAdd);
+            //Token resultRemove = tokentest.Remove(Token.Admin);
+            //Console.WriteLine(resultRemove);
          
            
 

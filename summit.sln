@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yiqibang", "yiqibang\yiqiba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{7A47A6B5-9F87-4451-94BA-70AE901371FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "homeWork", "homework\homeWork.csproj", "{EDC54CA4-D7E1-44A3-8A47-09DE8212E493}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork", "homework\HomeWork.csproj", "{EDC54CA4-D7E1-44A3-8A47-09DE8212E493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityTest", "EntityTest\EntityTest.csproj", "{98DA9B55-3860-451C-B654-6EFB4AB51A5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{EDC54CA4-D7E1-44A3-8A47-09DE8212E493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDC54CA4-D7E1-44A3-8A47-09DE8212E493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDC54CA4-D7E1-44A3-8A47-09DE8212E493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98DA9B55-3860-451C-B654-6EFB4AB51A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98DA9B55-3860-451C-B654-6EFB4AB51A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98DA9B55-3860-451C-B654-6EFB4AB51A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98DA9B55-3860-451C-B654-6EFB4AB51A5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
