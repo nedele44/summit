@@ -11,7 +11,19 @@ namespace homework
         static void Main(string[] args)
         {
 
-            Console.WriteLine(new MimicStack(65));//输出的是命名空间和类名
+            //Console.WriteLine(new MimicStack(65));//输出的是命名空间和类名
+
+            //VarArray a = new VarArray();
+            ////for (int i = 0; i < a.setarray.Length; i++)
+            ////{
+            ////    Console.WriteLine(a.setarray[i]);
+            ////}
+            //a.Get(5);//所有的元素都可以输入，回车键为基准
+            
+
+
+
+
 
             ////设置索引器并调用，这里输出的是字符串的第二个，剑
             //Problem wuqi = new Problem("相濡以沫，不如相忘于江湖");
