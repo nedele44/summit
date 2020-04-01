@@ -21,62 +21,21 @@ namespace Entity
             {
                 case unit.day:
                     return date.AddDays(span);
-                    break;
                 case unit.week:
                     return date.AddDays(7 * span);
-                    break;
                 default:
                     return date.AddMonths(span);
-                    break;
             }
-
-
-
-            //    //if (unit == "day") //若干天后
-            //    //{
-            //    //    newday = date.AddDays(span);
-            //    //    return newday;
-            //    //}
-            //    //else if (unit == "week")//若干星期后
-            //    //{
-
-            //    //    newday = date.AddDays(7 * span);
-            //    //    return newday;
-
-            //    //}
-            //    //else if (unit == "month")//若干月后
-            //    //{
-            //    //    newday = date.AddMonths(span);
-            //    //    return newday;
-            //        // int year = date.Year;
-            //        // int month = date.Month;
-            //        // int day = date.Day;
-            //        // month = month + span;
-            //        //int yearAdd = month / 12;
-            //        // month = month % 12;
-            //        // year = year + yearAdd;
-            //        // newday = DateTime.Parse("year-month-day");
-            //    }
-            //}
-            //Console.WriteLine("请重新输入");
-            //DateTime badday = new DateTime(1, 1, 1);
-            //return badday;
         }
-
-        public enum WeekToInt
-        {
-        }
-
 
         //给定任意一个年份，就能按周排列显示每周的起始日期
 
-        //public string dt;//这个用来记录一年第一天是星期几
-        //public int week;//这个可以不用设置，但是方便理解
-        /*   public int firstMonday*///这个用来确定一年中第一个星期一是一月几号
-                                     //创建一个方法得到当年的第一个星期一的日子
-        public int FristMonday(DateTime fristofYear)
+        //这个用来记录一年第一天是星期几
+ 
+        //创建一个方法得到当年的第一个星期一的日子
+        public int FristMonday(int year)
         {
-            DayOfWeek dt = fristofYear.DayOfWeek;
+            DayOfWeek dt =new DateTime(year,1,1).DayOfWeek;
             if (dt == DayOfWeek.Monday)
             {
                 return 1;
@@ -95,7 +54,7 @@ namespace Entity
         {
             DateTime fristofYear = new DateTime(year, 1, 1);
 
-            int monday = FristMonday(fristofYear);
+            int monday = FristMonday(year);
 
             DateTime firstMondayDay = new DateTime(year, 1, monday);//生成某年星期一的日期
             DateTime firstSundayDay = firstMondayDay.AddDays(6);
@@ -109,7 +68,7 @@ namespace Entity
             }
 
 
-           
+
         }
     }
 
