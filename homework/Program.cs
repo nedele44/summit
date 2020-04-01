@@ -11,7 +11,7 @@ namespace homework
         static void Main(string[] args)
         {
 
-
+            Console.WriteLine(new MimicStack(65));//输出的是命名空间和类名
 
             ////设置索引器并调用，这里输出的是字符串的第二个，剑
             //Problem wuqi = new Problem("相濡以沫，不如相忘于江湖");
