@@ -172,9 +172,9 @@ namespace homework
             //Console.WriteLine(a.GetDate(date, 365*3, "day").ToString("yyyy年MM月dd日"));
             //Console.WriteLine(a.GetDate(date, -1, "day").ToString("yyyy年MM月dd日"));
             //Console.WriteLine(a.GetDate(date, 5, "gui").ToString("yyyy年MM月dd日"));
-
-            //a.EveryWeek(2020);
-            //weektest.EveryWeek(1991);
+            Mytime weektest = new Mytime();
+            weektest.EveryWeek(2020);
+            weektest.EveryWeek(1991);
 
 
 
@@ -190,8 +190,8 @@ namespace homework
             //Console.WriteLine(resultAdd);
             //Token resultRemove = tokentest.Remove(Token.Admin);
             //Console.WriteLine(resultRemove);
-         
-           
+
+
 
 
 
@@ -232,7 +232,7 @@ namespace homework
 
 
 
-            
+
 
         }
 
