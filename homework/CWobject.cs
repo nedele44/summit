@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeWork
 {
-    class CWObject
+    class CWobject
     {
 
 
