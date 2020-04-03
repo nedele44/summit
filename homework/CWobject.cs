@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HomeWork
+namespace homework
 {
     class CWobject
     {
