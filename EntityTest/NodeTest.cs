@@ -9,31 +9,32 @@ namespace EntityTest
 
     class NodeTest
     {
+        DLinkedNode node1, node2, node3, node4, node5;
         [SetUp]
         public void Setup()
         {
-        }
-
-
-
-        [Test]
-        public void NodePosition()
-        {
             //搭建测试环境
             //创建五个节点
-            DLinkedNode node1 = new DLinkedNode();
-            DLinkedNode node2 = new DLinkedNode();
-            DLinkedNode node3 = new DLinkedNode();
-            DLinkedNode node4 = new DLinkedNode();
-            DLinkedNode node5 = new DLinkedNode();
+            node1 = new DLinkedNode();
+            node2 = new DLinkedNode();
+            node3 = new DLinkedNode();
+            node4 = new DLinkedNode();
+            node5 = new DLinkedNode();
 
             //创建链表
             node2.InsertAfter(node1);
             node3.InsertAfter(node2);
             node4.InsertAfter(node3);
             node5.InsertAfter(node4);
+        }
 
-            //开始测试，各个节点的位置特征和相互的联系
+
+
+        [Test]
+        public void SetupTest()
+        {
+
+            //对起初设置的节点进行测试
 
             Assert.IsTrue(node1.IsHead);//node1是头
             Assert.AreEqual(node1.Next, node2);
@@ -57,67 +58,224 @@ namespace EntityTest
             Assert.IsFalse(node5.IsHead);//node5不是头
             Assert.AreEqual(node5.Previous, node4);
             Assert.IsTrue(node5.IsTail);//node5是尾
-
-
-
         }
 
-        public void InsertTest()
+        /// <summary>
+        /// 分四类，对插入函数InsertBefore和InsertAfter进行测试
+        /// </summary>
+        [Test]
+        //在链表前面添加一个节点,[6] 1 2 3 4 5
+        public void InsertBefore_Head_Test()
         {
-            //搭建测试环境
-            //创建五个节点
-            DLinkedNode node1 = new DLinkedNode();
-            DLinkedNode node2 = new DLinkedNode();
-            DLinkedNode node3 = new DLinkedNode();
-            DLinkedNode node4 = new DLinkedNode();
-            DLinkedNode node5 = new DLinkedNode();
-
-            //创建链表
-            node2.InsertAfter(node1);
-            node3.InsertAfter(node2);
-            node4.InsertAfter(node3);
-            node5.InsertAfter(node4);
-
-            //当前链表的情况 1 2 3 4 5
-            //开始测试前后中三插
-
-            //检查在链表的最前面插入一个值
-            //把7插到1的前面
-            //6 1 2 3 4 5
             DLinkedNode node6 = new DLinkedNode();
             node6.InsertBefore(node1);
             Assert.AreEqual(node6.Next, node1);
             Assert.AreEqual(node1.Previous, node6);
-
-
-            //检查在链表中间后面插入一个值
-            //把7插到2后面，即3的前面
-            //6 1 2 7 3 4 5
-            DLinkedNode node7 = new DLinkedNode();
-            node7.InsertAfter(node2);
-            Assert.AreEqual(node2.Next, node7);
-            Assert.AreEqual(node7.Previous, node2);
-            Assert.AreEqual(node7.Next, node3);
-            Assert.AreEqual(node3.Previous, node7);
-
-            //检查在链表中间后面插入一个值
-            //把8插到2前面，即1的后面
-            //6 1 8 2 7 3 4 5
-            DLinkedNode node8 = new DLinkedNode();
-            node7.InsertBefore(node2);
-            Assert.AreEqual(node8.Next, node2);
-            Assert.AreEqual(node2.Previous, node8);
-            Assert.AreEqual(node1.Next, node8);
-            Assert.AreEqual(node8.Previous, node1);
-
-            //检查在链表最后面插入一个值
-            //把9插到5前面
-            //6 1 8 2 7 3 4 5 9
-            DLinkedNode node9 = new DLinkedNode();
-            node9.InsertAfter(node5);
-            Assert.AreEqual(node5.Next, node9);
-            Assert.AreEqual(node9.Previous, node5);
         }
 
+        [Test]
+        //在链表中间一个节点前面添加一个节点 1 [6] 2 3 4 5
+        public void InsertBefore_Mid_Test()
+        {
+            DLinkedNode node6 = new DLinkedNode();
+            node6.InsertBefore(node2);
+            Assert.AreEqual(node6.Next, node2);
+            Assert.AreEqual(node2.Previous, node6);
+            Assert.AreEqual(node1.Next, node6);
+            Assert.AreEqual(node6.Previous, node1);
+        }
+
+
+        //在链表中间一个节点的后面添加一个节点 1 2 [6] 3 4 5
+        [Test]
+        public void InsertAfter_Mid_Test()
+        {
+            DLinkedNode node6 = new DLinkedNode();
+            node6.InsertAfter(node2);
+            Assert.AreEqual(node2.Next, node6);
+            Assert.AreEqual(node6.Previous, node2);
+            Assert.AreEqual(node6.Next, node3);
+            Assert.AreEqual(node3.Previous, node6);
+        }
+
+
+        //在链表的最后面添加一个节点 1 2 3 4 5 [6]
+        [Test]
+        public void InsertAfter_Tail_Test()
+        {
+            DLinkedNode node6 = new DLinkedNode();
+            node6.InsertAfter(node5);
+            Assert.AreEqual(node5.Next, node6);
+            Assert.AreEqual(node6.Previous, node5);
+        }
+
+
+        /// <summary>
+        /// 分三种情况来，测试删除函数Delete
+        /// </summary>
+
+        //把链表的第一个去掉 （1） 2 3 4 5
+        [Test]
+        public void Delete_Head_Test()
+        {
+            //判断第二个是否为头，以及其他节点是否受到影响
+            node1.Detele();
+            Assert.IsTrue(node2.IsHead);//node2是头
+            Assert.AreEqual(node2.Next, node3);
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node3.IsHead);//node3不是头
+            Assert.AreEqual(node3.Previous, node2);
+            Assert.AreEqual(node3.Next, node4);
+            Assert.IsFalse(node3.IsTail);//node3不是尾
+
+            Assert.IsFalse(node4.IsHead);//node4不是头
+            Assert.AreEqual(node4.Previous, node3);
+            Assert.AreEqual(node4.Next, node5);
+            Assert.IsFalse(node4.IsTail);//node4不是尾
+
+            Assert.IsFalse(node5.IsHead);//node5不是头
+            Assert.AreEqual(node5.Previous, node4);
+            Assert.IsTrue(node5.IsTail);//node5是尾
+        }
+
+        [Test]
+        //把链表的中间一个去电 1 2 （3） 4 5
+        public void Delete_Mid_Test()
+        {
+            node3.Detele();
+            // 2的后一个是4,4的前一个是2，其他不变
+            Assert.IsTrue(node1.IsHead);//node1是头
+            Assert.AreEqual(node1.Next, node2);
+            Assert.IsFalse(node1.IsTail);//node1不是尾
+
+            Assert.IsFalse(node2.IsHead);//node2不是头
+            Assert.AreEqual(node2.Previous, node1);
+            Assert.AreEqual(node2.Next, node4);
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node4.IsHead);//node4不是头
+            Assert.AreEqual(node4.Previous, node2);
+            Assert.AreEqual(node4.Next, node5);
+            Assert.IsFalse(node4.IsTail);//node4不是尾
+
+            Assert.IsFalse(node5.IsHead);//node5不是头
+            Assert.AreEqual(node5.Previous, node4);
+            Assert.IsTrue(node5.IsTail);//node5是尾
+        }
+
+        [Test]
+        //把最后的那个节点去掉 1 2 3 4 （5）
+        public void Delete_Tail_Test()
+        {
+            node5.Detele();
+            Assert.IsTrue(node1.IsHead);//node1是头
+            Assert.AreEqual(node1.Next, node2);
+            Assert.IsFalse(node1.IsTail);//node1不是尾
+
+            Assert.IsFalse(node2.IsHead);//node2不是头
+            Assert.AreEqual(node2.Previous, node1);
+            Assert.AreEqual(node2.Next, node3);
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node3.IsHead);//node3不是头
+            Assert.AreEqual(node3.Previous, node2);
+            Assert.AreEqual(node3.Next, node4);
+            Assert.IsFalse(node3.IsTail);//node3不是尾
+
+            Assert.IsFalse(node4.IsHead);//node4不是头
+            Assert.AreEqual(node4.Previous, node3);
+            Assert.IsTrue(node4.IsTail);//node4是尾
+        }
+
+
+
+        /// <summary>
+        /// 下面这个是用来测试，链表某个节点的移动，
+        /// 
+        /// </summary>
+        [Test]
+        //用来测试现有的节点插到另一个节点的后面
+        public void Move_After_Test()
+        {
+            //居然测试通过了
+            //将node1移动到node3的后面 即为 2  3 [1] 4 5
+            bool result = node1.Move(node3, DLinkedNode.Position.behind);
+            //受影响的节点为1 2 3 4
+            Assert.IsTrue(result);//看看会不会报错
+
+            Assert.IsTrue(node2.IsHead);//node2是头
+            Assert.AreEqual(node2.Next, node3);
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node3.IsHead);//node3不是头
+            Assert.AreEqual(node3.Previous, node2);
+            Assert.AreEqual(node3.Next, node1);//node3的下一个是node1
+            Assert.IsFalse(node3.IsTail);//node3不是尾
+
+            Assert.IsFalse(node1.IsHead);//node1不是头
+            Assert.AreEqual(node1.Previous, node3);
+            Assert.AreEqual(node1.Next, node4);
+            Assert.IsFalse(node1.IsTail);//node1不是尾
+
+            Assert.IsFalse(node4.IsHead);//node4不是头
+            Assert.AreEqual(node4.Previous, node1);//node4的前一个是node1
+            Assert.AreEqual(node4.Next, node5);
+            Assert.IsFalse(node4.IsTail);//node4不是尾
+
+            Assert.IsFalse(node5.IsHead);//node5不是头
+            Assert.AreEqual(node5.Previous, node4);
+            Assert.IsTrue(node5.IsTail);//node5是尾
+        }
+
+
+        [Test]
+        //用来测试现有的节点插到另一个节点的后面
+        public void Move_Before_Test()
+        {
+            //居然测试通过了
+            //将node1移动到node3的前面,  //将node1移动到node3的后面 即为 2  [1]  3  4 5
+            bool result = node1.Move(node3, DLinkedNode.Position.front);
+            //受影响的节点为1 2 3 4
+            Assert.IsTrue(result);//看看会不会报错
+
+            Assert.IsTrue(node2.IsHead);//node2是头
+            Assert.AreEqual(node2.Next, node1);//node2的后一个就是node1
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node1.IsHead);//node1不是头
+            Assert.AreEqual(node1.Previous, node2);
+            Assert.AreEqual(node1.Next, node3); //node1的后一个就是node3
+            Assert.IsFalse(node1.IsTail);//node1不是尾
+
+            Assert.IsFalse(node3.IsHead);//node3不是头
+            Assert.AreEqual(node3.Previous, node1);
+            Assert.AreEqual(node3.Next, node4);//node3的下一个是node1
+            Assert.IsFalse(node3.IsTail);//node3不是尾
+
+
+
+            Assert.IsFalse(node4.IsHead);//node4不是头
+            Assert.AreEqual(node4.Previous, node3);//node4的前一个是node1
+            Assert.AreEqual(node4.Next, node5);
+            Assert.IsFalse(node4.IsTail);//node4不是尾
+
+            Assert.IsFalse(node5.IsHead);//node5不是头
+            Assert.AreEqual(node5.Previous, node4);
+            Assert.IsTrue(node5.IsTail);//node5是尾
+        }
+
+        [Test]
+        //如果不是现有节点和现有参考点呢,检查报错情况
+        public void Move_Fail_Test()
+        {
+
+            bool result1 = node2.Move(node1.Previous, DLinkedNode.Position.behind);
+            Assert.IsFalse(result1);
+
+        }
+
+
+        
     }
 }
