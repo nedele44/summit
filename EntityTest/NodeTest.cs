@@ -120,6 +120,7 @@ namespace EntityTest
         {
             //判断第二个是否为头，以及其他节点是否受到影响
             node1.Detele();
+
             Assert.IsTrue(node2.IsHead);//node2是头
             Assert.AreEqual(node2.Next, node3);
             Assert.IsFalse(node2.IsTail);//node2不是尾
@@ -200,10 +201,9 @@ namespace EntityTest
         {
             //居然测试通过了
             //将node1移动到node3的后面 即为 2  3 [1] 4 5
-            bool result = node1.Move(node3, DLinkedNode.Position.behind);
+         node1.Move(node3, DLinkedNode.Position.behind);
             //受影响的节点为1 2 3 4
-            Assert.IsTrue(result);//看看会不会报错
-
+           
             Assert.IsTrue(node2.IsHead);//node2是头
             Assert.AreEqual(node2.Next, node3);
             Assert.IsFalse(node2.IsTail);//node2不是尾
@@ -235,10 +235,9 @@ namespace EntityTest
         {
             //居然测试通过了
             //将node1移动到node3的前面,  //将node1移动到node3的后面 即为 2  [1]  3  4 5
-            bool result = node1.Move(node3, DLinkedNode.Position.front);
+           node1.Move(node3, DLinkedNode.Position.front);
             //受影响的节点为1 2 3 4
-            Assert.IsTrue(result);//看看会不会报错
-
+          
             Assert.IsTrue(node2.IsHead);//node2是头
             Assert.AreEqual(node2.Next, node1);//node2的后一个就是node1
             Assert.IsFalse(node2.IsTail);//node2不是尾
@@ -265,17 +264,132 @@ namespace EntityTest
             Assert.IsTrue(node5.IsTail);//node5是尾
         }
 
+      
+        /// <summary>
+        /// 下面是测试两个节点互相交换，分三种情况进行检测，1，有第一参与，2，有最后一个参与，3，两者都没有
+        /// </summary>
         [Test]
-        //如果不是现有节点和现有参考点呢,检查报错情况
-        public void Move_Fail_Test()
+        //第一个与中间的节点4交换 1 2 3 4 5 --》4 2 3 1 5
+        public void Swap_Head_Test()
         {
+            node1.Swap(node4);
 
-            bool result1 = node2.Move(node1.Previous, DLinkedNode.Position.behind);
-            Assert.IsFalse(result1);
+            Assert.IsTrue(node4.IsHead);//node4是头
+            Assert.AreEqual(node4.Next, node2);
+            Assert.IsFalse(node4.IsTail);//node4不是尾
 
+            Assert.IsFalse(node2.IsHead);//node2不是头
+            Assert.AreEqual(node2.Previous, node4);
+            Assert.AreEqual(node2.Next, node3);
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node3.IsHead);//node3不是头
+            Assert.AreEqual(node3.Previous, node2);
+            Assert.AreEqual(node3.Next, node1);
+            Assert.IsFalse(node3.IsTail);//node3不是尾
+
+            Assert.IsFalse(node1.IsHead);//node1不是头
+            Assert.AreEqual(node1.Previous, node3);
+            Assert.AreEqual(node1.Next, node5);
+            Assert.IsFalse(node1.IsTail);//node1不是尾
+
+            Assert.IsFalse(node5.IsHead);//node5不是头
+            Assert.AreEqual(node5.Previous, node1);
+            Assert.IsTrue(node5.IsTail);//node5是尾
         }
 
 
-        
+        [Test]
+        //最后一个与中间交换1 2 3 4 5  --》 1  2 5 4 3
+        public void Swap_Tail_Test() 
+        {
+            node5.Swap(node3);
+
+            Assert.IsTrue(node1.IsHead);//node1是头
+            Assert.AreEqual(node1.Next, node2);
+            Assert.IsFalse(node1.IsTail);//node1不是尾
+
+            Assert.IsFalse(node2.IsHead);//node2不是头
+            Assert.AreEqual(node2.Previous, node1);
+            Assert.AreEqual(node2.Next, node5);
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node5.IsHead);//node5不是头
+            Assert.AreEqual(node5.Previous, node2);
+            Assert.AreEqual(node5.Next, node4);
+            Assert.IsFalse(node5.IsTail);//node5不是尾
+
+            Assert.IsFalse(node4.IsHead);//node4不是头
+            Assert.AreEqual(node4.Previous, node5);
+            Assert.AreEqual(node4.Next, node3);
+            Assert.IsFalse(node4.IsTail);//node4不是尾
+
+            Assert.IsFalse(node3.IsHead);//node3不是头
+            Assert.AreEqual(node3.Previous, node4);
+            Assert.IsTrue(node3.IsTail);//node3是尾
+        }
+
+        [Test]
+        //头尾交换 1 2 3 4 5 --》5 2 3 4 1
+        public void Swap_Head_Tail()
+        {
+            node1.Swap(node5);
+
+            Assert.IsTrue(node5.IsHead);//node5是头
+            Assert.AreEqual(node5.Next, node2);
+            Assert.IsFalse(node5.IsTail);//node5不是尾
+
+            Assert.IsFalse(node2.IsHead);//node2不是头
+            Assert.AreEqual(node2.Previous, node5);
+            Assert.AreEqual(node2.Next, node3);
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node3.IsHead);//node3不是头
+            Assert.AreEqual(node3.Previous, node2);
+            Assert.AreEqual(node3.Next, node4);
+            Assert.IsFalse(node3.IsTail);//node3不是尾
+
+            Assert.IsFalse(node4.IsHead);//node4不是头
+            Assert.AreEqual(node4.Previous, node3);
+            Assert.AreEqual(node4.Next, node1);
+            Assert.IsFalse(node4.IsTail);//node4不是尾
+
+            Assert.IsFalse(node1.IsHead);//node5不是头
+            Assert.AreEqual(node1.Previous, node4);
+            Assert.IsTrue(node1.IsTail);//node5是尾
+        }
+
+        [Test]
+        //中间两个交换
+        public void Swap_Mid_Test()
+        {
+            node2.Swap(node4);
+
+            Assert.IsTrue(node1.IsHead);//node1是头
+            Assert.AreEqual(node1.Next, node4);
+            Assert.IsFalse(node1.IsTail);//node1不是尾
+
+            Assert.IsFalse(node4.IsHead);//node2不是头
+            Assert.AreEqual(node4.Previous, node1);
+            Assert.AreEqual(node4.Next, node3);
+            Assert.IsFalse(node2.IsTail);//node2不是尾
+
+            Assert.IsFalse(node3.IsHead);//node3不是头
+            Assert.AreEqual(node3.Previous, node4);
+            Assert.AreEqual(node3.Next, node2);
+            Assert.IsFalse(node3.IsTail);//node3不是尾
+
+            Assert.IsFalse(node2.IsHead);//node4不是头
+            Assert.AreEqual(node2.Previous, node3);
+            Assert.AreEqual(node2.Next, node5);
+            Assert.IsFalse(node2.IsTail);//node4不是尾
+
+            Assert.IsFalse(node5.IsHead);//node5不是头
+            Assert.AreEqual(node5.Previous, node2);
+            Assert.IsTrue(node5.IsTail);//node5是尾
+        }
+
+
+
     }
 }

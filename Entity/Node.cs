@@ -61,10 +61,15 @@ namespace Entity
             DLinkedNode nodeNext = node.Next;
             node.Next = this;
             this.Previous = node;
-            this.Next = nodeNext;
+            
             if (nodeNext != null)
             {
+                this.Next = nodeNext;
                 nodeNext.Previous = this;
+            }
+            else
+            {
+                this.Next = null;
             }
 
         }
@@ -79,6 +84,7 @@ namespace Entity
             {
                 node.Previous = this;
                 this.Next = node;
+                this.Previous = null;
             }
             else
             {
@@ -104,17 +110,17 @@ namespace Entity
             front,
             behind
         }
-        //节点a表示节点移动的参考对象，b表示在节点的前面还是在节点的后面
-        public bool Move(DLinkedNode a, Position position)
+        //节点a表示节点移动的参考对象，position表示在节点的前面还是在节点的后面
+        public /*bool*/ void Move(DLinkedNode a, Position position)
         {
 
             //移动一个节点，可以分两步走，1，是删除掉这个节点，2，是插入这个节点
             //如果移动的节点和参考节点都不存在呢
-            if (a == null/* || this==null*/)
-            {
-                Console.WriteLine("你输入的信息有误！");
-                return false;
-            }
+            //if (a == null/* || this==null*/)
+            //{
+            //    Console.WriteLine("你输入的信息有误！");
+            //    //return false;
+            //}
             this.Detele();
             switch (position)
             {
@@ -125,9 +131,44 @@ namespace Entity
                     this.InsertAfter(a);
                     break;
             }
-            return true;
+        //    return true;
         }
 
+
+        //交换现有的节点Swap
+        //可能要分两种情况讨论，这个问题
+        //1.如果交换的两个节点如果是相邻的两个节点，那么只需要将后一个节点查到前一个节点的前面即可，后者说把前一个节点放在后一个节点的后面
+        //2.如果交换的两个节点不相邻，那么就需要有两个参考点，两个节点的前面的节点为参考点
+        public void Swap(DLinkedNode node) 
+        {
+            //首先第一步应该是判断两个节点是否相邻,还需要细分，他们谁在前，谁在后
+            if (this.Next==node/*||this.Previous==node*/)
+            {
+                this.Move(node, Position.behind);
+            }
+            else if (this.Previous == node)
+            {
+                this.Move(node, Position.front);
+            }
+            else
+            {
+                //现在考虑不相邻怎么办，谁前谁后不用考虑，但是如果出现首尾参与的交换呢，参考点可能会是null  
+                //第一步先把一个节点移到另一个节点的后面再说,不对,需要有个中间变量,来存储移动前，前后的信息
+                DLinkedNode thisNext =this.Next;
+                DLinkedNode thisPre = this.Previous;
+                this.Move(node, Position.behind);
+                //后面为空，说明起先是尾部在移动，就需要以前面的点作为参考点
+                if (thisNext==null)
+                {
+                    node.Move(thisPre,Position.behind);
+                }
+                else
+                {
+                    node.Move(thisNext, Position.front);
+                }
+            }
+
+        }
 
 
     }
