@@ -47,7 +47,7 @@ public class User:IChat,ISendMessage
             Console.WriteLine("声东击西");
         }
 
-
+        // 设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
         private string _name;//用户名
         //如果user.Name为“admin”，输入是修改为“系统管理员”
         public string Name
@@ -58,6 +58,12 @@ public class User:IChat,ISendMessage
                 if (value == "admin")
                 {
                     Console.WriteLine("系统管理员");
+                    return;
+                }
+
+                if (value.Contains("admin")||value.Contains("17bang")||value.Contains("管理员"))
+                {
+                    Console.WriteLine("请重新输入用户名");
                     return;
                 }
                 _name = value;

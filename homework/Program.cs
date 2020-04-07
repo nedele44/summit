@@ -10,9 +10,9 @@ namespace homework
     {
         static void Main(string[] args)
         {
-
-
-
+            //User s = new User();
+            //s.Name = "woshiadmin";
+            //Console.WriteLine(s.Name);
 
 
 
