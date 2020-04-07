@@ -46,8 +46,6 @@ namespace EntityTest
             
             //2020年
             Assert.AreEqual(new DateTime(2020, 1, 6), new DateTime(2020, 1, test.FristMonday(2020)));
-
-            
         }
     }
 }

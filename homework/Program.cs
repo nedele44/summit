@@ -11,6 +11,25 @@ namespace homework
         static void Main(string[] args)
         {
 
+
+
+
+
+
+            //Article aaa = new Article();
+            ////aaa.Title = " 4544 ";
+            ////Console.WriteLine(aaa.Title);
+            //aaa.Title = "4654454 45545";
+            //Console.WriteLine(aaa.Title);
+            //aaa.Title = null;
+            //Console.WriteLine(aaa.Title);
+
+            // aaa.womeng = 120;
+
+            //int a1 = aaa.womeng;
+
+
+
             //Console.WriteLine(new MimicStack(65));//输出的是命名空间和类名
 
             //VarArray a = new VarArray();
@@ -19,7 +38,7 @@ namespace homework
             ////    Console.WriteLine(a.setarray[i]);
             ////}
             //a.Get(5);//所有的元素都可以输入，回车键为基准
-            
+
 
 
 
