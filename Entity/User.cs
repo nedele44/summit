@@ -70,21 +70,31 @@ public class User:IChat,ISendMessage
             }
         }
 
+
+        //确保用户（User）的密码（Password）：长度不低于6和必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成
         private string _password;//密码
         //user.Password 在类的外部只能改不能读
 
-        //第一种写法
+        
         //internal void setPassword(string password)
         //{
         //    _Password = password;
         //}
-        //第二种写法
+        
         public string Password
         {
-            set { _password = value; }
+            set 
+            {
+                if (value.Length < 6 || !value.Contains("azAZ09~!@#$%^&*()_+"))//此处应该有更为简单的方法，为了节约时间暂时这样做
+                {
+                    Console.WriteLine("请重新设置密码");
+                    return;
+                }
+                _password = value;
+            }
             get { return _password; }
         }
-        //第三种写法
+       
         //public string Password { set；}
 
 

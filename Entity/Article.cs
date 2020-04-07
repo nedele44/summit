@@ -72,11 +72,8 @@ namespace Entity
                     {
                         title = valueTrim;
                     }
-                   
-                }
-               
-               
-            }
+                 }
+             }
         }
 
         public void Push(string value, out bool full)
