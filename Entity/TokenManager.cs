@@ -24,8 +24,19 @@ namespace Entity
         }
         public Token Remove(Token token)
         {
-            this._tokens = (this._tokens ^ token);
-            return this._tokens;
+            //异或是相同的去掉，不同的留下
+            //这个方法的目的是移除已经有的指令，也就是说这个指令必须是this含有的
+            //需要进行一次判断看看是否包含,包含就去掉这个权限，不包含就维持
+            bool result=this.Has(token);
+            if (result)
+            {
+                this._tokens = (this._tokens ^ token);
+                return this._tokens;
+            }
+            else
+            {
+                return this._tokens;
+            }
         }
         public bool Has(Token token)
         {
