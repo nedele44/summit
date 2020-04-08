@@ -5,11 +5,14 @@ using System.Text;
 namespace Entity
 {
     //Content 应该选择为抽象类，而不是接口，在我创建的类里，除了有抽象方法，还有其他的实现
+
+    
     public abstract class Content : ContentService
     {
         /// <summary>
         /// 无参构造函数，生成目前的时间
         /// </summary>
+        
         public Content()
         {
             //CreatTime和PublishTime，作为只读属性，要给他们赋值，我所掌握就是在构造函数上给他们赋值
@@ -30,7 +33,7 @@ namespace Entity
         //只读属性PublishTime使用它为外部提供内容的发布时间
         public DateTime PublishTime { get { return CreatTime; } }
 
-      
+
 
 
         //内容的子类有求助，文章和意见建议，据我观察，其共同点很多，比如

@@ -10,8 +10,16 @@ namespace homework
     {
         static void Main(string[] args)
         {
+           
+
+
+
             //创建一个content对象，然后输出CreatTime和PublishTime的值
-            //Content mary = new Article();
+            Content mary = new Article();
+            typeof(Content).GetProperty("CreatTime");
+
+
+
             //Console.WriteLine(mary.CreatTime);
             //Console.WriteLine(mary.PublishTime);
 

@@ -16,7 +16,7 @@ namespace Entity
         //采用mimi栈的push的方法，将string关键字压入字符串中
         private static int top;
 
-        public string[] Keyword=new string[5];
+        public string[] Keyword = new string[5];
 
         //private int _age;
         //public int womeng 
@@ -39,7 +39,7 @@ namespace Entity
         //这个要申明一个属性Title
         //在属性设置中set项要把这些限制条件写进去
         private string title;
-      
+
         public string Title
         {
             get { return title; }
@@ -57,7 +57,7 @@ namespace Entity
                     string valueTrim = value.Trim();//先把头尾两边的空格去掉
                     for (int i = 0; i < valueTrim.Length; i++)
                     {
-                        if (valueTrim[i] ==' ')  //空字符串的符号
+                        if (valueTrim[i] == ' ')  //空字符串的符号
                         {
                             has = true;
                         }
@@ -66,19 +66,19 @@ namespace Entity
                     if (has)
                     {
                         Console.WriteLine("输入的字符串含有空字符");
-                       
+
                     }
                     else
                     {
                         title = valueTrim;
                     }
-                 }
-             }
+                }
+            }
         }
 
         public void Push(string value, out bool full)
         {
-            
+
             full = top >= 5;
             if (full)
             {
@@ -89,10 +89,11 @@ namespace Entity
                 Keyword[top] = value;
                 top++;
             }
-              
+
         }
 
         //如果发布Article，需要消耗一个帮帮币
+        [HelpMoneyChange(50,Message ="有人打赏的")]
         public override void Publish()
         {
             //HelpCreit在User类中，只能是User类型加字段，来表示具有意义
