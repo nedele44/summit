@@ -10,16 +10,18 @@ namespace homework
     {
         static void Main(string[] args)
         {
+            //反射获取Publish()上的特性实例，输出其中包含的信息
+
+//            Attribute attribute = HelpMoneyChange.GetCustomAttribute(typeof(Article),typeof(HelpMoneyChange)      
+//);
            
+//            Console.WriteLine(((HelpMoneyChange)attribute).Message);
+//            Console.WriteLine(((HelpMoneyChange)attribute).Amount);
 
 
 
             //创建一个content对象，然后输出CreatTime和PublishTime的值
-            Content mary = new Article();
-            typeof(Content).GetProperty("CreatTime");
-
-
-
+            //Content mary = new Article();
             //Console.WriteLine(mary.CreatTime);
             //Console.WriteLine(mary.PublishTime);
 
