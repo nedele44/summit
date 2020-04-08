@@ -10,6 +10,15 @@ namespace homework
     {
         static void Main(string[] args)
         {
+            //创建一个content对象，然后输出CreatTime和PublishTime的值
+            //Content mary = new Article();
+            //Console.WriteLine(mary.CreatTime);
+            //Console.WriteLine(mary.PublishTime);
+
+
+
+
+
             //User s = new User();
             //s.Name = "woshiadmin";
             //Console.WriteLine(s.Name);

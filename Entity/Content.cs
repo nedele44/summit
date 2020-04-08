@@ -12,6 +12,7 @@ namespace Entity
         /// </summary>
         public Content()
         {
+            //CreatTime和PublishTime，作为只读属性，要给他们赋值，我所掌握就是在构造函数上给他们赋值
             CreatTime = DateTime.Now;
         }
 
@@ -22,15 +23,14 @@ namespace Entity
         {
             this.kind = kind;
         }
-        //Content中的createTime，不能被子类使用,就是使用private
         //这里输出的应该是datatime类型，赋值过程在构造函数中进行
-        private DateTime CreatTime;
+        public DateTime CreatTime { get; }
 
 
         //只读属性PublishTime使用它为外部提供内容的发布时间
-        private DateTime PublishTime { get { return CreatTime; } }
+        public DateTime PublishTime { get { return CreatTime; } }
 
-
+      
 
 
         //内容的子类有求助，文章和意见建议，据我观察，其共同点很多，比如
