@@ -20,6 +20,13 @@ namespace HomeWorkTest
             Assert.AreEqual(0, test.GetCount("abcabcabc", "d"));
         }
 
+        [Test]
+        public void MimicJoinTest()
+        {
+            StringHomework test = new StringHomework();
+            Assert.AreEqual("我-是-小-菜",test.MimicJoin("-","我","是","小","菜"));
+        }
+
 
 
 
