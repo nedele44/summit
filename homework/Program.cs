@@ -11,9 +11,16 @@ namespace homework
         static void Main(string[] args)
         {
 
+            //使用自定义的Iout接口，来尝试协变
+            //当把out去掉时，out1就会报错
+            Iout<Content> out1 =new Out<Article>();
 
+            Iout<Content> out2 =new Out<Content>();
 
-
+            //使用自定义的Iin接口，来尝试逆变
+            //当把in去掉是，in1就会报错
+            Iin<Article> in1 = new In<Content>();
+            Iin<Article> in2 = new In<Article>();
 
 
 
