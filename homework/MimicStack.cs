@@ -4,17 +4,18 @@ using System.Text;
 
 namespace homeWork
 {
+    //用泛型改造堆栈，除了用T代替int以外，注意返回值为default(T)
     /// <summary>
     /// 出栈和入栈
     /// </summary>
-    public class MimicStack
+    public class MimicStack<T>
     {
         // Length来设置栈的深度
         private int length;
         //实例每push一个top就跟着加1，每pop一个top减1，初始值为0,
         private int top;
         // 申明一个数组来表示栈,此时的数组为空null
-        private int[] container;
+        private T[] container;
         /// <summary>
         /// 构造函数，在new一个对象时就设置栈的深度
         /// </summary>
@@ -23,9 +24,9 @@ namespace homeWork
         {
             this.length = length;
             top = 0;
-            container = new int[this.length];
+            container = new T[this.length];
         }
-        public bool Push(int value)
+        public bool Push(T value)
         {
 
             //当full=true时，表示栈以满
@@ -41,14 +42,14 @@ namespace homeWork
             top++;
             return false;
         }
-        public int Pop(out bool empty)
+        public T Pop(out bool empty)
         {
             //如果一个值没有赋，那直接就是top等于0
             empty = 0 >= top;
             if (empty)
             {
                 Console.WriteLine("栈以空");
-                return -1;
+                return default(T);
             }
             else
             //top-1和上面的加1一样

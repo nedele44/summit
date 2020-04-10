@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Entity
 {
-    public class Entity
+    public class Entity<T>
     {
-        private string Id { get; }
+        //改造Entity类，让其Id可以为任意类型
+        private T Id { get; }
     }
 }

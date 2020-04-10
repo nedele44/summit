@@ -10,6 +10,17 @@ namespace homework
     {
         static void Main(string[] args)
         {
+
+
+
+
+
+
+
+
+
+
+
             //反射获取Publish()上的特性实例，输出其中包含的信息
 
 //            Attribute attribute = HelpMoneyChange.GetCustomAttribute(typeof(Article),typeof(HelpMoneyChange)      
