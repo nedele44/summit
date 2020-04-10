@@ -7,6 +7,13 @@ namespace Entity
     public class Article : Content
     {
 
+        //每个文章和评论都有一个评价 
+        public Appraise appraise { get; set; }
+        //一篇文章可以有多个评论 
+        public List<Comment> comments { get; set; }
+        //一篇文章可以有多个关键字，一个关键字可以对应多篇文章
+        public List<Keyword> Keywords { get; set; }
+
         public Article() : base("article")
         {
 
