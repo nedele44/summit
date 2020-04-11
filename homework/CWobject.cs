@@ -57,9 +57,9 @@ namespace homework
 
         // Returns a String which represents the object instance.  The default  for an object is to return the fully qualified name of the class.
         //返回表示对象实例的字符串。 对象的默认值是返回类的完全限定名称。
-        public virtual string? ToString()
-        {
-            return GetType().ToString();
-        }
+        //public virtual string ToString()
+        //{
+        //    return GetType().ToString();
+        //}
     }
 }

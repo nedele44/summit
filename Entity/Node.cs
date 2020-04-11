@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Entity
 {
-    public class DLinkedNode
+    //双向链表要能被foreach，就要继承IEnumerable
+    public class DLinkedNode : IEnumerable
     {
         public DLinkedNode Next { get; private set; }//链表节点
 
@@ -12,6 +14,7 @@ namespace Entity
 
 
         public int Id { get; set; }//value 也可以
+        public int Value { get; set; }//value 也可以
 
         //如果他是链表的第一个，说明他前面一个是null
         public bool IsHead
@@ -61,7 +64,7 @@ namespace Entity
             DLinkedNode nodeNext = node.Next;
             node.Next = this;
             this.Previous = node;
-            
+
             if (nodeNext != null)
             {
                 this.Next = nodeNext;
@@ -103,9 +106,9 @@ namespace Entity
         }
 
 
-        
-    
-       public  enum Position
+
+
+        public enum Position
         {
             front,
             behind
@@ -131,7 +134,7 @@ namespace Entity
                     this.InsertAfter(a);
                     break;
             }
-        //    return true;
+            //    return true;
         }
 
 
@@ -139,10 +142,10 @@ namespace Entity
         //可能要分两种情况讨论，这个问题
         //1.如果交换的两个节点如果是相邻的两个节点，那么只需要将后一个节点查到前一个节点的前面即可，后者说把前一个节点放在后一个节点的后面
         //2.如果交换的两个节点不相邻，那么就需要有两个参考点，两个节点的前面的节点为参考点
-        public void Swap(DLinkedNode node) 
+        public void Swap(DLinkedNode node)
         {
             //首先第一步应该是判断两个节点是否相邻,还需要细分，他们谁在前，谁在后
-            if (this.Next==node/*||this.Previous==node*/)
+            if (this.Next == node/*||this.Previous==node*/)
             {
                 this.Move(node, Position.behind);
             }
@@ -154,13 +157,13 @@ namespace Entity
             {
                 //现在考虑不相邻怎么办，谁前谁后不用考虑，但是如果出现首尾参与的交换呢，参考点可能会是null  
                 //第一步先把一个节点移到另一个节点的后面再说,不对,需要有个中间变量,来存储移动前，前后的信息
-                DLinkedNode thisNext =this.Next;
+                DLinkedNode thisNext = this.Next;
                 DLinkedNode thisPre = this.Previous;
                 this.Move(node, Position.behind);
                 //后面为空，说明起先是尾部在移动，就需要以前面的点作为参考点
-                if (thisNext==null)
+                if (thisNext == null)
                 {
-                    node.Move(thisPre,Position.behind);
+                    node.Move(thisPre, Position.behind);
                 }
                 else
                 {
@@ -170,6 +173,51 @@ namespace Entity
 
         }
 
+        //这里是自动生成的实现接口
+        public IEnumerator GetEnumerator()
+        {
+            //throw new NotImplementedException();
+            return new NodeEnumerator();
+        }
+        public class NodeEnumerator : IEnumerator
+        {
+            //private static DLinkedNode node1;
+            //private static DLinkedNode node2;
+            //private static DLinkedNode node3;
+            //private static DLinkedNode node4;
+            //private static DLinkedNode node5;
 
+            //先创建一个链表再说
+
+            //DLinkedNode node1 = new DLinkedNode() { Value = 1 };
+            //DLinkedNode node2 = new DLinkedNode() { Value = 2 };
+            //DLinkedNode node3 = new DLinkedNode() { Value = 3 };
+            //DLinkedNode node4 = new DLinkedNode() { Value = 4 };
+            //DLinkedNode node5 = new DLinkedNode() { Value = 5 };
+
+            //如果是节点集合，就不是foreach链表了，但是如果不是集合，item就为空，
+            //DLinkedNode[] nodes = new DLinkedNode[] { node1, node2, node3, node4, node5 };
+            //DLinkedNode[] nodes = new DLinkedNode[] {};
+            //List<DLinkedNode> nodes = new List<DLinkedNode>();
+            int[] a = new int[] { 1, 2, 3, 4, 5 };
+            private int index=-1;
+
+            public object Current
+            {
+                get
+                {
+                    return a[index];
+                }
+            }
+            public bool MoveNext()
+            {
+                index++;
+                return index<a.Length;
+            }
+            public void Reset()
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }
