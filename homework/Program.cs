@@ -11,6 +11,12 @@ namespace homework
     {
         static void Main(string[] args)
         {
+
+
+
+
+
+
             //DLinkedNode node1 = new DLinkedNode() { Value = 1 };
             //DLinkedNode node2 = new DLinkedNode() { Value = 2 };
             //DLinkedNode node3 = new DLinkedNode() { Value = 3 };
