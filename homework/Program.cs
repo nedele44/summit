@@ -33,7 +33,7 @@ namespace homework
                 Console.WriteLine(((DLinkedNode)item).Value);
             }
 
-
+            node1.Max();
 
 
 
