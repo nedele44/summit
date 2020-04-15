@@ -6,7 +6,8 @@ namespace Entity
 {
    public static class NodeExtesion
     {
-        //这样就需要有一个
+        //调用扩展方法Max()：能够返回链表中存贮着最大值的节点
+        //链表如果能被foreach，那么找到链表的最大值得节点不成问题
         public static DLinkedNode Max(this IEnumerable<DLinkedNode> node)
         {
 

@@ -16,24 +16,31 @@ namespace homework
 
 
 
+            //end这个bool字段，是不能少
+            DLinkedNode node1 = new DLinkedNode { Value = 1 };
+            DLinkedNode node2 = new DLinkedNode { Value = 2 };
+            DLinkedNode node3 = new DLinkedNode { Value = 3 };
+            DLinkedNode node4 = new DLinkedNode { Value = 4 };
+            DLinkedNode node5 = new DLinkedNode { Value = 5 };
+           
+            node2.InsertAfter(node1);
+            node3.InsertAfter(node2);
+            node4.InsertAfter(node3);
+            node5.InsertAfter(node4);
 
-            //DLinkedNode node1 = new DLinkedNode() { Value = 1 };
-            //DLinkedNode node2 = new DLinkedNode() { Value = 2 };
-            //DLinkedNode node3 = new DLinkedNode() { Value = 3 };
-            //DLinkedNode node4 = new DLinkedNode() { Value = 4 };
-            //DLinkedNode node5 = new DLinkedNode() { Value = 5 };
-            //node2.InsertAfter(node1);
-            //node3.InsertAfter(node2);
-            //node4.InsertAfter(node3);
-            //node5.InsertAfter(node4);
-            //双向链表能被foreach迭代,
-            //foreach链表并得到链表上的值，从头开始
-            
-            //DLinkedNode node = new DLinkedNode();
-            //foreach (var item in node)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            foreach (var item in node1)
+            {
+                Console.WriteLine(((DLinkedNode)item).Value);
+            }
+
+
+
+
+
+
+
+
+
 
 
 

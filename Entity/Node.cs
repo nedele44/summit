@@ -12,7 +12,7 @@ namespace Entity
 
         public DLinkedNode Previous { get; private set; }
 
-
+        //泛型应用在双向链表上,只能想到的是在value上用T表示，更改过于麻烦就不弄了
         public int Id { get; set; }//value 也可以
         public int Value { get; set; }//value 也可以
 
@@ -177,42 +177,46 @@ namespace Entity
         public IEnumerator GetEnumerator()
         {
             //throw new NotImplementedException();
-            return new NodeEnumerator();
+            return new NodeEnumerator(this);
         }
+
+
+
         public class NodeEnumerator : IEnumerator
         {
-            //private static DLinkedNode node1;
-            //private static DLinkedNode node2;
-            //private static DLinkedNode node3;
-            //private static DLinkedNode node4;
-            //private static DLinkedNode node5;
+            private DLinkedNode node;
+            private bool end;
 
-            //先创建一个链表再说
-
-            //DLinkedNode node1 = new DLinkedNode() { Value = 1 };
-            //DLinkedNode node2 = new DLinkedNode() { Value = 2 };
-            //DLinkedNode node3 = new DLinkedNode() { Value = 3 };
-            //DLinkedNode node4 = new DLinkedNode() { Value = 4 };
-            //DLinkedNode node5 = new DLinkedNode() { Value = 5 };
-
-            //如果是节点集合，就不是foreach链表了，但是如果不是集合，item就为空，
-            //DLinkedNode[] nodes = new DLinkedNode[] { node1, node2, node3, node4, node5 };
-            //DLinkedNode[] nodes = new DLinkedNode[] {};
-            //List<DLinkedNode> nodes = new List<DLinkedNode>();
-            int[] a = new int[] { 1, 2, 3, 4, 5 };
-            private int index=-1;
+            public NodeEnumerator(DLinkedNode node)
+            {
+                this.node = node;
+            }
 
             public object Current
             {
                 get
                 {
-                    return a[index];
+                    return node.Previous;
                 }
             }
             public bool MoveNext()
             {
-                index++;
-                return index<a.Length;
+                if (end)
+                {
+                    return false;
+                }
+
+                if (node.IsTail)
+                {
+                    //安插一个假的节点在这个节点的后面继续走
+                    DLinkedNode fakeTail = new DLinkedNode();
+                    fakeTail.InsertAfter(node);
+                    end = true;
+                }//else nothing
+
+                node = node.Next;
+                return true;
+
             }
             public void Reset()
             {
