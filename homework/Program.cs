@@ -36,12 +36,15 @@ namespace homework
 
 
             Article CSharp, summit, HTML, UI, CAD;
-            User dfg, xy, zm;
+            User dfg, xy, zm, wmz, ljp, at;
             Keyword csharp, html, ui, dashen, net, cad;
 
             dfg = new User("叶飞", "000000");
             xy = new User("小余", "111111");
             zm = new User("赵淼", "123456");
+            wmz = new User("王明智", "123456");
+            ljp = new User("刘江平", "123456");
+            at = new User("阿泰", "123456");
 
 
             CSharp = new Article() { Author = dfg, Title = "CSharp_Introduction", PublishTime = new DateTime(2019, 1, 1) };
@@ -232,16 +235,54 @@ namespace homework
             }
 
             //找出每个作者最近发布的一篇文章 
-            var personArticle = articles.GroupBy(a => a.Author);
+            //var personArticle = articles.GroupBy(a => a.Author);
             foreach (var item in authorArticle)
             {
                 Console.WriteLine(item.Key.Name + "最新发布的文章的文章：");
-                var maxComment = item.OrderByDescending(a => a.PublishTime);
-                Console.WriteLine(maxComment.First().Title);
+                var recentlyArticle = item.OrderByDescending(a => a.PublishTime);
+                Console.WriteLine(recentlyArticle.First().Title);
             }
 
             //为求助（Problem）添加悬赏（Reward）属性，并找出每一篇求助的悬赏都大于5个帮帮币的求助作者
 
+
+            Problem CSharpQuestion, HTMLQuestion, SQLQuestion, UIQuestion;
+            CSharpQuestion = new Problem
+            {
+                Title = "C#question",
+                Author = zm,
+                Reward = 4,
+
+            };
+            HTMLQuestion = new Problem
+            {
+                Title = "HTMLquestion",
+                Author = wmz,
+                Reward = 5,
+
+            };
+            SQLQuestion = new Problem
+            {
+                Title = "SQLquestion",
+                Author = ljp,
+                Reward = 6,
+
+            };
+            UIQuestion = new Problem
+            {
+                Title = " UIquestion",
+                Author = at,
+                Reward = 7,
+
+            };
+            List<Problem> problems = new List<Problem> { CSharpQuestion, HTMLQuestion, SQLQuestion, UIQuestion };
+            var rewardBeyongfive = from s in problems
+                                   where s.Reward > 5
+                                   select s;
+            foreach (var item in rewardBeyongfive)
+            {
+                Console.WriteLine(item.Title + "的求助者为" + ":" + item.Author.Name+"---"+"求助金币为"+item.Reward);
+            }
 
 
 

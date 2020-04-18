@@ -37,6 +37,8 @@ namespace Entity
 
         }
 
+        public string Title { get; set; }
+
         //一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写。
         //设置一个字段来保存数据
         //private string[] _keyword = { "刀", "剑", "弓", "枪", "炮", "拳", "标" };
@@ -47,19 +49,19 @@ namespace Entity
         //    set { _keyword[index] = value; }
         //}
         //这里跟字段的设置与输出一样
-        public Problem(int consume)
-        {
-            this.Consume = consume;
-        }
+        //public Problem(int consume)
+        //{
+        //    this.Consume = consume;
+        //}
 
 
-        private int Consume;
+        //private int Consume;
 
         //如果发布Problem，需要消耗其设置悬赏数量的帮帮币
         //也就是说在发布一个求助时，先设置消耗的金币，那这个需要引入一个参数，Consume 消耗、消费
         public override void Publish()
         {
-            Author.HelpCreit = Author.HelpCreit - Consume;
+            Author.HelpCreit = Author.HelpCreit - Reward;
             Console.WriteLine("这是一个求助");
         }
       
