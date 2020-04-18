@@ -27,10 +27,13 @@ namespace Entity
             get { return _reward; }
             set
             {
+                //1.修改之前的属性验证：problem.Reward为负数时直接抛出“参数越界”异常 
                 if (value < 0)
                 {
-                    Console.WriteLine("Reward不能为负数");
-                    return;
+                    throw new ArgumentOutOfRangeException("悬赏不能为负");
+                    //Console.WriteLine("Reward不能为负数");
+                    //return;
+
                 }
                 _reward = value;
             }

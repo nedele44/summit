@@ -271,7 +271,6 @@ namespace homework
             UIQuestion = new Problem
             {
                 Title = " UIquestion",
-                Author = at,
                 Reward = 7,
 
             };
