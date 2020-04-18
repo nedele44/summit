@@ -231,10 +231,16 @@ namespace homework
                 Console.WriteLine(maxComment.First().Title);
             }
 
+            //找出每个作者最近发布的一篇文章 
+            var personArticle = articles.GroupBy(a => a.Author);
+            foreach (var item in authorArticle)
+            {
+                Console.WriteLine(item.Key.Name + "最新发布的文章的文章：");
+                var maxComment = item.OrderByDescending(a => a.PublishTime);
+                Console.WriteLine(maxComment.First().Title);
+            }
 
-
-
-
+            //为求助（Problem）添加悬赏（Reward）属性，并找出每一篇求助的悬赏都大于5个帮帮币的求助作者
 
 
 
