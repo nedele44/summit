@@ -8,39 +8,25 @@ namespace Entity
     {
 
         //每个文章和评论都有一个评价 
-        public Appraise appraise { get; set; }
+        public Appraise Appraise { get; set; }
         //一篇文章可以有多个评论 
-        public List<Comment> comments { get; set; }
+        public List<Comment> Comments { get; set; }
         //一篇文章可以有多个关键字，一个关键字可以对应多篇文章
         public List<Keyword> Keywords { get; set; }
 
         public Article() : base("article")
         {
-
-            top = 0;
+          
+           
         }
         //Article相对于意见建议和求助，不同点在于，Article有关键字,最多只能有5个关键字
         //采用mimi栈的push的方法，将string关键字压入字符串中
-        private static int top;
+        
+//public User Author { get; }
+   
 
-        public string[] Keyword = new string[5];
-
-        //private int _age;
-        //public int womeng 
-        //{
-        //    get { return _age; }
-        //    set 
-        //    {
-        //        {
-        //            if (value < 0 || value > 100)      //用value代表付给属性的值
-        //            {
-        //                Console.WriteLine("给age的赋值超过了合理范围");
-        //                return;                        //结束赋值过程
-        //            }
-        //            _age = value;
-        //        }
-        //    }
-        //}
+ 
+        
 
         //确保文章（Article）的标题不能为null值，也不能为一个或多个空字符组成的字符串，而且如果标题前后有空格，也予以删除
         //这个要申明一个属性Title
@@ -83,41 +69,41 @@ namespace Entity
             }
         }
 
-        public void Push(string value, out bool full)
-        {
+        //public void Push(string value, out bool full)
+        //{
 
-            full = top >= 5;
-            if (full)
-            {
-                Console.WriteLine("关键字最多为5个");
-            }
-            else
-            {
-                Keyword[top] = value;
-                top++;
-            }
+        //    full = top >= 5;
+        //    if (full)
+        //    {
+        //        Console.WriteLine("关键字最多为5个");
+        //    }
+        //    else
+        //    {
+        //        Keyword[top] = value;
+        //        top++;
+        //    }
 
-        }
+        //}
 
         //如果发布Article，需要消耗一个帮帮币
         [HelpMoneyChange(50,Message ="有人打赏的")]
         public override void Publish()
         {
             //HelpCreit在User类中，只能是User类型加字段，来表示具有意义
-            author.HelpCreit--;
+           Author.HelpCreit--;
             Console.WriteLine("这是篇文章");
         }
         public override int Praise(User voter)
         {
-            author.HelpCreit++;
+           Author.HelpCreit++;
             voter.HelpCreit--;
-            return author.HelpCreit;
+            return Author.HelpCreit;
         }
         public override int Tread(User voter)
         {
-            author.HelpCreit--;
+            Author.HelpCreit--;
             voter.HelpCreit--;
-            return author.HelpCreit;
+            return Author.HelpCreit;
         }
     }
 }

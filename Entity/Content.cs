@@ -7,7 +7,7 @@ namespace Entity
     //Content 应该选择为抽象类，而不是接口，在我创建的类里，除了有抽象方法，还有其他的实现
 
     
-    public abstract class Content : ContentService
+    public abstract class Content 
     {
         /// <summary>
         /// 无参构造函数，生成目前的时间
@@ -31,7 +31,7 @@ namespace Entity
 
 
         //只读属性PublishTime使用它为外部提供内容的发布时间
-        public DateTime PublishTime { get { return CreatTime; } }
+        public DateTime PublishTime { get; set; }
 
 
 
@@ -40,11 +40,11 @@ namespace Entity
         //都含有标题，主题内容，和作者
         //都有显示点踩，点赞的数量，和评论框以及评论数的显示
         private string title { get; set; }
-        public string body { get; set; }
+        public string Body { get; set; }
         /// <summary>
         /// 这里属性的定义为User，也是自己自定义的一个类
         /// </summary>
-        public User author { get; set; }
+        public User Author { get; set; }
         //这里要用public 在多处需要用到
 
             //在Content类中声明一个Publish的方法，供Article,Problem,和Suggest继承

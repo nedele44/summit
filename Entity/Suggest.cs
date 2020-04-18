@@ -21,15 +21,15 @@ namespace Entity
 
         public override int Praise(User voter)
         {
-           author.HelpCreit++;
+           Author.HelpCreit++;
             voter.HelpCreit--;
-            return author.HelpCreit;
+            return Author.HelpCreit;
         }
         public override int Tread(User voter)
         {
-            author.HelpCreit--;
+            Author.HelpCreit--;
             voter.HelpCreit--;
-            return author.HelpCreit;
+            return Author.HelpCreit;
         }
     }
 }

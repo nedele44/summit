@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Entity;
 using homeWork;
 //需要点击homework中Dependencies来与Entity进行引用连接
@@ -11,29 +12,232 @@ namespace homework
     {
         static void Main(string[] args)
         {
+            Article CSharp, summit, HTML, UI, CAD;
+            User dfg, xy, zm;
+            Keyword csharp, html, ui, dashen, net, cad;
+
+            dfg = new User("叶飞", "000000");
+            xy = new User("小余", "111111");
+            zm = new User("赵淼", "123456");
+
+
+            CSharp = new Article() { Author = dfg, Title = "CSharp_Introduction", PublishTime = new DateTime(2019, 1, 1) };
+            summit = new Article() { Author = dfg, Title = "summit_Introduction", PublishTime = new DateTime(2020, 1, 1) };
+            HTML = new Article() { Author = dfg, Title = "HTML_Introduction", PublishTime = new DateTime(2019, 3, 1) };
+            UI = new Article() { Author = xy, Title = "UI_Introduction", PublishTime = new DateTime(2018, 1, 1) };
+            CAD = new Article() { Author = xy, Title = "CAD_Introduction", PublishTime = new DateTime(2020, 2, 1) };
+
+
+            csharp = new Keyword
+            {
+                Name = "C#",
+                Articles = new List<Article> { summit, CSharp }
+            };
+
+            html = new Keyword()
+            {
+                Name = "HTML",
+                Articles = new List<Article> { summit, HTML }
+            };
+            ui = new Keyword()
+            {
+                Name = "UI",
+                Articles = new List<Article> { UI }
+            };
+            dashen = new Keyword()
+            {
+                Name = "大飞哥",
+                Articles = new List<Article> { summit, CSharp, HTML }
+            };
+            net = new Keyword()
+            {
+                Name = ".NET",
+                Articles = new List<Article> { summit }
+            };
+            cad = new Keyword()
+            {
+                Name = "CAD",
+                Articles = new List<Article> { summit }
+            };
+
+            CSharp.Keywords = new List<Keyword> { csharp, dashen };
+            summit.Keywords = new List<Keyword> { csharp, dashen, html, net };
+            HTML.Keywords = new List<Keyword> { dashen, html };
+            UI.Keywords = new List<Keyword> { ui };
+            CAD.Keywords = new List<Keyword> { cad };
+
+            Comment zmhua = new Comment()
+            {
+                Article = summit,
+                Content = "花花花",
+                CommentBy = zm,
+            };
+            Comment zmgua = new Comment()
+            {
+                Article = CSharp,
+                Content = "呱呱呱",
+                CommentBy = zm,
+            };
+            Comment zmha = new Comment()
+            {
+                Article = UI,
+                Content = "哈哈哈",
+                CommentBy = zm,
+            };
+            Comment zmla = new Comment()
+            {
+                Article = summit,
+                Content = "啦啦啦",
+                CommentBy = zm,
+            };
+            Comment zmga = new Comment()
+            {
+                Article = summit,
+                Content = "嘎嘎嘎",
+                CommentBy = zm,
+            };
+
+            CSharp.Comments = new List<Comment> { zmgua };
+            summit.Comments = new List<Comment> { zmga, zmla, zmhua };
+            HTML.Comments = new List<Comment> { zmga, zmla };
+            UI.Comments = new List<Comment> { zmga, zmla };
+            CAD.Comments = new List<Comment> { zmha };
+
+
+
+            //1.找出“飞哥”发布的文章 
+            List<Article> articles = new List<Article> { summit, CSharp, HTML, UI, CAD };
+            var dfgArticle = from s in articles
+                             where s.Author == dfg
+                             select s;
+            Console.WriteLine("大飞哥发布的文章：");
+            foreach (var item in dfgArticle)
+            {
+                Console.WriteLine(item.Title);
+            }
+
+            //2.找出2019年1月1日以后“小鱼”发布的文章 
+            var xyArticle = from s in articles
+                            where s.PublishTime > new DateTime(2019, 1, 1)
+                            where s.Author == xy
+                            select s;
+            Console.WriteLine("小余19年后发布的文章：");
+            foreach (var item in xyArticle)
+            {
+                Console.WriteLine(item.Title);
+            }
+
+            //3.按发布时间升序 / 降序排列显示文章
+            var ascendingArticle = from s in articles
+                                   orderby s.PublishTime
+                                   select s;
+            Console.WriteLine("按升序排列发布的文章：");
+            foreach (var item in ascendingArticle)
+            {
+                Console.WriteLine(item.Title + ":" + item.PublishTime.Date);
+            }
+
+
+            var descendingArticle = from s in articles
+                                    orderby s.PublishTime descending
+                                    select s;
+            Console.WriteLine("按降序排列发布的文章：");
+            foreach (var item in descendingArticle)
+            {
+                Console.WriteLine(item.Title + ":" + item.PublishTime.Date);
+            }
+
+            //4.统计每个用户各发布了多少篇文章 
+            var userArticle = from s in articles
+                              group s by s.Author;
+            Console.WriteLine("各个用户发表的文章数");
+            foreach (var item in userArticle)
+            {
+                Console.WriteLine(item.Key.Name + ":" + item.Count());
+            }
+
+
+            //5.找出包含关键字“C#”或“.NET”的文章
+            var keywordArticle = from s in articles
+                                 where s.Keywords.Contains(csharp) || s.Keywords.Contains(net)
+                                 select s;
+            Console.WriteLine("关键字包含C#或.NET的文章：");
+            foreach (var item in keywordArticle)
+            {
+                Console.WriteLine(item.Title);
+            }
+
+            //6.找出评论数量最多的文章 
+            var maxCommentarticle = from s in articles
+                                    orderby s.Comments.Count() descending
+                                    select s;
+
+            Console.WriteLine("评论数量最多的文章:");
+            Console.WriteLine(maxCommentarticle.First().Title);
+
+
+            //7.找出每个作者评论数最多的文章
+            var authorArticle = from s in articles
+                                group s by s.Author;
+            foreach (var item in authorArticle)
+            {
+                Console.WriteLine(item.Key.Name+ "评论最多的文章：" );
+                var maxComment=from s in item   
+                               orderby s.Comments.Count() descending
+                               select s;
+                Console.WriteLine(maxComment.First().Title);
+            }
+
+
+
+                         
+
+            
+
+
+
+
+
+
+
+            //var maxCommentarticle = from s in articles
+            //                        group s by s.Author into gm
+            //                        select new Result
+            //                        {
+            //                            article = gm.Key.Name, 
+            //                            count = gm.Count()   
+            //                        };
+
+
+
+
+
+
+
+
 
 
 
 
 
             //end这个bool字段，是不能少
-            DLinkedNode node1 = new DLinkedNode { Value = 1 };
-            DLinkedNode node2 = new DLinkedNode { Value = 2 };
-            DLinkedNode node3 = new DLinkedNode { Value = 3 };
-            DLinkedNode node4 = new DLinkedNode { Value = 4 };
-            DLinkedNode node5 = new DLinkedNode { Value = 5 };
-           
-            node2.InsertAfter(node1);
-            node3.InsertAfter(node2);
-            node4.InsertAfter(node3);
-            node5.InsertAfter(node4);
+            //DLinkedNode node1 = new DLinkedNode { Value = 1 };
+            //DLinkedNode node2 = new DLinkedNode { Value = 2 };
+            //DLinkedNode node3 = new DLinkedNode { Value = 3 };
+            //DLinkedNode node4 = new DLinkedNode { Value = 4 };
+            //DLinkedNode node5 = new DLinkedNode { Value = 5 };
 
-            foreach (var item in node1)
-            {
-                Console.WriteLine(((DLinkedNode)item).Value);
-            }
+            //node2.InsertAfter(node1);
+            //node3.InsertAfter(node2);
+            //node4.InsertAfter(node3);
+            //node5.InsertAfter(node4);
 
-            node1.Max();
+            //foreach (var item in node1)
+            //{
+            //    Console.WriteLine(((DLinkedNode)item).Value);
+            //}
+
+            //node1.Max();
 
 
 
@@ -339,8 +543,7 @@ namespace homework
         }
 
 
-
-
+      
 
 
     }

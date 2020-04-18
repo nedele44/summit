@@ -4,21 +4,21 @@ using System.Text;
 
 namespace Entity
 {
-   public class Appraise
+    public class Appraise
     {
-        private User author;
+        public  User Author{get;set;}
 
         public int Praise(User voter)
         {
-            author.HelpCreit++;
+           Author.HelpCreit++;
             voter.HelpCreit--;
-            return author.HelpCreit;
+            return Author.HelpCreit;
         }
         public int Tread(User voter)
         {
-            author.HelpCreit--;
+            Author.HelpCreit--;
             voter.HelpCreit--;
-            return author.HelpCreit;
+            return Author.HelpCreit;
         }
     }
 }
