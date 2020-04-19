@@ -6,13 +6,13 @@ namespace Entity
 {
     //Content 应该选择为抽象类，而不是接口，在我创建的类里，除了有抽象方法，还有其他的实现
 
-    
-    public abstract class Content 
+
+    public abstract class Content
     {
         /// <summary>
         /// 无参构造函数，生成目前的时间
         /// </summary>
-        
+
         public Content()
         {
             //CreatTime和PublishTime，作为只读属性，要给他们赋值，我所掌握就是在构造函数上给他们赋值
@@ -45,9 +45,11 @@ namespace Entity
         /// 这里属性的定义为User，也是自己自定义的一个类
         /// </summary>
         public User Author { get; set; }
+        public string Id { get; internal set; }
+
         //这里要用public 在多处需要用到
 
-            //在Content类中声明一个Publish的方法，供Article,Problem,和Suggest继承
+        //在Content类中声明一个Publish的方法，供Article,Problem,和Suggest继承
         public virtual void Publish()
         {
             //2.内容（Content）发布（Publish）的时候检查其作者（Author）是否为空，如果为空抛出“参数为空”异常
@@ -56,43 +58,43 @@ namespace Entity
                 throw new ArgumentNullException("请输入作者名");
             }//else nothing...
         }
-    }
+    
 
 
 
 
-        /// <summary>
-        /// 显示点赞的个数，每点一次赞，作者获得一个帮帮币，点赞的人少一个帮帮币
-        /// </summary>
-        /// <param name="voter">代表点赞人的参数</param>
-        /// <returns>作者的帮帮币</returns>
-        //public int Praise(User voter)
-        //{
-        //    //初始点赞应该是0，每点一个加1，那么有多少帮帮币，说明点了多少赞
-        //    Author.HelpCreit++;
-        //    voter.HelpCreit--;
-        //    return Author.HelpCreit;
-        //}
+    /// <summary>
+    /// 显示点赞的个数，每点一次赞，作者获得一个帮帮币，点赞的人少一个帮帮币
+    /// </summary>
+    /// <param name="voter">代表点赞人的参数</param>
+    /// <returns>作者的帮帮币</returns>
+    //public int Praise(User voter)
+    //{
+    //    //初始点赞应该是0，每点一个加1，那么有多少帮帮币，说明点了多少赞
+    //    Author.HelpCreit++;
+    //    voter.HelpCreit--;
+    //    return Author.HelpCreit;
+    //}
 
-        //点赞和点踩的抽象
-        public abstract int Praise(User voter);
-        public abstract int Tread(User voter);
-
-
-
-        //public static int tread = 0;
-        /// <summary>
-        /// 显示点踩得个数，获得一个踩，作者的棒棒币和点踩的人少一个棒棒币
-        /// </summary>
-        /// <param name="voter">点踩得人</param>
-        /// <returns></returns>
-        //public int Tread(User voter)
-        //{
-        //    Author.HelpCreit--;
-        //    voter.HelpCreit--;
-        //    return Author.HelpCreit;
-        //}
+    //点赞和点踩的抽象
+    public abstract int Praise(User voter);
+    public abstract int Tread(User voter);
 
 
-    }
+
+    //public static int tread = 0;
+    /// <summary>
+    /// 显示点踩得个数，获得一个踩，作者的棒棒币和点踩的人少一个棒棒币
+    /// </summary>
+    /// <param name="voter">点踩得人</param>
+    /// <returns></returns>
+    //public int Tread(User voter)
+    //{
+    //    Author.HelpCreit--;
+    //    voter.HelpCreit--;
+    //    return Author.HelpCreit;
+    //}
+
 }
+    }
+

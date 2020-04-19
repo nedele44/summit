@@ -12,7 +12,10 @@ namespace homework
     {
         static void Main(string[] args)
         {
-
+            Mailname email = new Mailname(@"F:\Mailstext.txt");
+            //email.GetMessages();
+            //email.ChangeMessages(2);
+            email.WriteMessages(@"F:\Mailstext1.txt",2);
 
 
 
@@ -274,14 +277,14 @@ namespace homework
                 Reward = 7,
 
             };
-            List<Problem> problems = new List<Problem> { CSharpQuestion, HTMLQuestion, SQLQuestion, UIQuestion };
-            var rewardBeyongfive = from s in problems
-                                   where s.Reward > 5
-                                   select s;
-            foreach (var item in rewardBeyongfive)
-            {
-                Console.WriteLine(item.Title + "的求助者为" + ":" + item.Author.Name+"---"+"求助金币为"+item.Reward);
-            }
+            //List<Problem> problems = new List<Problem> { CSharpQuestion, HTMLQuestion, SQLQuestion, UIQuestion };
+            //var rewardBeyongfive = from s in problems
+            //                       where s.Reward > 5
+            //                       select s;
+            //foreach (var item in rewardBeyongfive)
+            //{
+            //    Console.WriteLine(item.Title + "的求助者为" + ":" + item.Author.Name+"---"+"求助金币为"+item.Reward);
+            //}
 
 
 
