@@ -12,279 +12,278 @@ namespace homework
     {
         static void Main(string[] args)
         {
-            Mailname email = new Mailname(@"F:\Mailstext.txt");
-            //email.GetMessages();
-            //email.ChangeMessages(2);
-            email.WriteMessages(@"F:\Mailstext1.txt",2);
+            Mailname email = new Mailname(@"F:\summit\homework\Emails.txt");
+            email.LineNumber = 1;
+            email.WriteMessages(@"F:\summit\homework\Emails1.txt");
 
 
 
-            Person teenage = new Person() { age = 14 };
+            //Person teenage = new Person() { age = 14 };
 
-            ProvideWater water1 = show1;
-            Console.WriteLine("这是方法委托" + ":" + water1(teenage));
+            //ProvideWater water1 = show1;
+            //Console.WriteLine("这是方法委托" + ":" + water1(teenage));
 
-            ProvideWater water2 = delegate (Person person)
-              {
-                  return person.age + 1;
-              };
-            Console.WriteLine("这是匿名委托" + ":" + water2(teenage));
+            //ProvideWater water2 = delegate (Person person)
+            //  {
+            //      return person.age + 1;
+            //  };
+            //Console.WriteLine("这是匿名委托" + ":" + water2(teenage));
 
-            ProvideWater water3 = person => person.age + 2;
-            Console.WriteLine("这是Lambda表达式" + ":" + water3(teenage));
-
-
-
-
-
-
-            Article CSharp, summit, HTML, UI, CAD;
-            User dfg, xy, zm, wmz, ljp, at;
-            Keyword csharp, html, ui, dashen, net, cad;
-
-            dfg = new User("叶飞", "000000");
-            xy = new User("小余", "111111");
-            zm = new User("赵淼", "123456");
-            wmz = new User("王明智", "123456");
-            ljp = new User("刘江平", "123456");
-            at = new User("阿泰", "123456");
-
-
-            CSharp = new Article() { Author = dfg, Title = "CSharp_Introduction", PublishTime = new DateTime(2019, 1, 1) };
-            summit = new Article() { Author = dfg, Title = "summit_Introduction", PublishTime = new DateTime(2020, 1, 1) };
-            HTML = new Article() { Author = dfg, Title = "HTML_Introduction", PublishTime = new DateTime(2019, 3, 1) };
-            UI = new Article() { Author = xy, Title = "UI_Introduction", PublishTime = new DateTime(2018, 1, 1) };
-            CAD = new Article() { Author = xy, Title = "CAD_Introduction", PublishTime = new DateTime(2020, 2, 1) };
-
-
-            csharp = new Keyword
-            {
-                Name = "C#",
-                Articles = new List<Article> { summit, CSharp }
-            };
-
-            html = new Keyword()
-            {
-                Name = "HTML",
-                Articles = new List<Article> { summit, HTML }
-            };
-            ui = new Keyword()
-            {
-                Name = "UI",
-                Articles = new List<Article> { UI }
-            };
-            dashen = new Keyword()
-            {
-                Name = "大飞哥",
-                Articles = new List<Article> { summit, CSharp, HTML }
-            };
-            net = new Keyword()
-            {
-                Name = ".NET",
-                Articles = new List<Article> { summit }
-            };
-            cad = new Keyword()
-            {
-                Name = "CAD",
-                Articles = new List<Article> { summit }
-            };
-
-            CSharp.Keywords = new List<Keyword> { csharp, dashen };
-            summit.Keywords = new List<Keyword> { csharp, dashen, html, net };
-            HTML.Keywords = new List<Keyword> { dashen, html };
-            UI.Keywords = new List<Keyword> { ui };
-            CAD.Keywords = new List<Keyword> { cad };
-
-            Comment zmhua = new Comment()
-            {
-                Article = summit,
-                Content = "花花花",
-                CommentBy = zm,
-            };
-            Comment zmgua = new Comment()
-            {
-                Article = CSharp,
-                Content = "呱呱呱",
-                CommentBy = zm,
-            };
-            Comment zmha = new Comment()
-            {
-                Article = UI,
-                Content = "哈哈哈",
-                CommentBy = zm,
-            };
-            Comment zmla = new Comment()
-            {
-                Article = summit,
-                Content = "啦啦啦",
-                CommentBy = zm,
-            };
-            Comment zmga = new Comment()
-            {
-                Article = summit,
-                Content = "嘎嘎嘎",
-                CommentBy = zm,
-            };
-
-            CSharp.Comments = new List<Comment> { zmgua };
-            summit.Comments = new List<Comment> { zmga, zmla, zmhua };
-            HTML.Comments = new List<Comment> { zmga, zmla };
-            UI.Comments = new List<Comment> { zmga, zmla };
-            CAD.Comments = new List<Comment> { zmha };
-
-
-
-            //1.找出“飞哥”发布的文章 
-            List<Article> articles = new List<Article> { summit, CSharp, HTML, UI, CAD };
-            List<Keyword> keywords = new List<Keyword> { csharp, html, ui, dashen, net, cad };
-            //var dfgArticle = from s in articles
-            //                 where s.Author == dfg
-            //                 select s;
-            var dfgArticle = articles.Where(s => s.Author == dfg);
-            Console.WriteLine("大飞哥发布的文章：");
-            foreach (var item in dfgArticle)
-            {
-                Console.WriteLine(item.Title);
-            }
+            //ProvideWater water3 = person => person.age + 2;
+            //Console.WriteLine("这是Lambda表达式" + ":" + water3(teenage));
 
 
 
 
 
-            //2.找出2019年1月1日以后“小鱼”发布的文章 
-            //var xyArticle = from s in articles
-            //                where s.PublishTime > new DateTime(2019, 1, 1)
-            //                where s.Author == xy
-            //                select s;
-            var xyArticle = articles.Where(s => s.Author == xy && s.PublishTime > new DateTime(2019, 1, 1));
-            Console.WriteLine("小余19年后发布的文章：");
-            foreach (var item in xyArticle)
-            {
-                Console.WriteLine(item.Title);
-            }
 
-            //3.按发布时间升序 / 降序排列显示文章
-            //var ascendingArticle = from s in articles
-            //                       orderby s.PublishTime
-            //                       select s;
-            var ascendingArticle = articles.OrderBy(s => s.PublishTime);
-            Console.WriteLine("按升序排列发布的文章：");
-            foreach (var item in ascendingArticle)
-            {
-                Console.WriteLine(item.Title + ":" + item.PublishTime.Date);
-            }
+            //Article CSharp, summit, HTML, UI, CAD;
+            //User dfg, xy, zm, wmz, ljp, at;
+            //Keyword csharp, html, ui, dashen, net, cad;
+
+            //dfg = new User("叶飞", "000000");
+            //xy = new User("小余", "111111");
+            //zm = new User("赵淼", "123456");
+            //wmz = new User("王明智", "123456");
+            //ljp = new User("刘江平", "123456");
+            //at = new User("阿泰", "123456");
 
 
-            //var descendingArticle = from s in articles
-            //                        orderby s.PublishTime descending
-            //                        select s;
-            var descendingArticle = articles.OrderByDescending(s => s.PublishTime);
-            Console.WriteLine("按降序排列发布的文章：");
-            foreach (var item in descendingArticle)
-            {
-                Console.WriteLine(item.Title + ":" + item.PublishTime.Date);
-            }
-
-            //4.统计每个用户各发布了多少篇文章 
-            //var userArticle = from s in articles
-            //                  group s by s.Author;
-            var userArticle = articles.GroupBy(s => s.Author);
-            Console.WriteLine("各个用户发表的文章数");
-            foreach (var item in userArticle)
-            {
-                Console.WriteLine(item.Key.Name + ":" + item.Count());
-            }
+            //CSharp = new Article() { Author = dfg, Title = "CSharp_Introduction", PublishTime = new DateTime(2019, 1, 1) };
+            //summit = new Article() { Author = dfg, Title = "summit_Introduction", PublishTime = new DateTime(2020, 1, 1) };
+            //HTML = new Article() { Author = dfg, Title = "HTML_Introduction", PublishTime = new DateTime(2019, 3, 1) };
+            //UI = new Article() { Author = xy, Title = "UI_Introduction", PublishTime = new DateTime(2018, 1, 1) };
+            //CAD = new Article() { Author = xy, Title = "CAD_Introduction", PublishTime = new DateTime(2020, 2, 1) };
 
 
-            //5.找出包含关键字“C#”或“.NET”的文章
-            var keywordArticle = from s in articles
-                                 where s.Keywords.Any(k => k.Name == "C#" || k.Name == ".NET")
-                                 select s;
-            //var keywordArticle = articles.Where(a => a.Keywords.Any(k => k.Name == "C#"||k.Name==".NET"));
+            //csharp = new Keyword
+            //{
+            //    Name = "C#",
+            //    Articles = new List<Article> { summit, CSharp }
+            //};
 
-            Console.WriteLine("关键字包含C#或.NET的文章：");
-            foreach (var item in keywordArticle)
-            {
-                Console.WriteLine(item.Title);
-            }
+            //html = new Keyword()
+            //{
+            //    Name = "HTML",
+            //    Articles = new List<Article> { summit, HTML }
+            //};
+            //ui = new Keyword()
+            //{
+            //    Name = "UI",
+            //    Articles = new List<Article> { UI }
+            //};
+            //dashen = new Keyword()
+            //{
+            //    Name = "大飞哥",
+            //    Articles = new List<Article> { summit, CSharp, HTML }
+            //};
+            //net = new Keyword()
+            //{
+            //    Name = ".NET",
+            //    Articles = new List<Article> { summit }
+            //};
+            //cad = new Keyword()
+            //{
+            //    Name = "CAD",
+            //    Articles = new List<Article> { summit }
+            //};
 
-            //6.找出评论数量最多的文章 
-            //var maxCommentarticle = from s in articles
-            //                        orderby s.Comments.Count() descending
-            //                        select s;
-            var maxCommentarticle = articles.OrderByDescending(a => a.Comments.Count());
-            Console.WriteLine("评论数量最多的文章:");
-            Console.WriteLine(maxCommentarticle.First().Title);
+            //CSharp.Keywords = new List<Keyword> { csharp, dashen };
+            //summit.Keywords = new List<Keyword> { csharp, dashen, html, net };
+            //HTML.Keywords = new List<Keyword> { dashen, html };
+            //UI.Keywords = new List<Keyword> { ui };
+            //CAD.Keywords = new List<Keyword> { cad };
+
+            //Comment zmhua = new Comment()
+            //{
+            //    Article = summit,
+            //    Content = "花花花",
+            //    CommentBy = zm,
+            //};
+            //Comment zmgua = new Comment()
+            //{
+            //    Article = CSharp,
+            //    Content = "呱呱呱",
+            //    CommentBy = zm,
+            //};
+            //Comment zmha = new Comment()
+            //{
+            //    Article = UI,
+            //    Content = "哈哈哈",
+            //    CommentBy = zm,
+            //};
+            //Comment zmla = new Comment()
+            //{
+            //    Article = summit,
+            //    Content = "啦啦啦",
+            //    CommentBy = zm,
+            //};
+            //Comment zmga = new Comment()
+            //{
+            //    Article = summit,
+            //    Content = "嘎嘎嘎",
+            //    CommentBy = zm,
+            //};
+
+            //CSharp.Comments = new List<Comment> { zmgua };
+            //summit.Comments = new List<Comment> { zmga, zmla, zmhua };
+            //HTML.Comments = new List<Comment> { zmga, zmla };
+            //UI.Comments = new List<Comment> { zmga, zmla };
+            //CAD.Comments = new List<Comment> { zmha };
 
 
-            //7.找出每个作者评论数最多的文章
-            //var authorArticle = from s in articles
-            //                    group s by s.Author;
 
+            ////1.找出“飞哥”发布的文章 
+            //List<Article> articles = new List<Article> { summit, CSharp, HTML, UI, CAD };
+            //List<Keyword> keywords = new List<Keyword> { csharp, html, ui, dashen, net, cad };
+            ////var dfgArticle = from s in articles
+            ////                 where s.Author == dfg
+            ////                 select s;
+            //var dfgArticle = articles.Where(s => s.Author == dfg);
+            //Console.WriteLine("大飞哥发布的文章：");
+            //foreach (var item in dfgArticle)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
+
+
+
+
+
+            ////2.找出2019年1月1日以后“小鱼”发布的文章 
+            ////var xyArticle = from s in articles
+            ////                where s.PublishTime > new DateTime(2019, 1, 1)
+            ////                where s.Author == xy
+            ////                select s;
+            //var xyArticle = articles.Where(s => s.Author == xy && s.PublishTime > new DateTime(2019, 1, 1));
+            //Console.WriteLine("小余19年后发布的文章：");
+            //foreach (var item in xyArticle)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
+
+            ////3.按发布时间升序 / 降序排列显示文章
+            ////var ascendingArticle = from s in articles
+            ////                       orderby s.PublishTime
+            ////                       select s;
+            //var ascendingArticle = articles.OrderBy(s => s.PublishTime);
+            //Console.WriteLine("按升序排列发布的文章：");
+            //foreach (var item in ascendingArticle)
+            //{
+            //    Console.WriteLine(item.Title + ":" + item.PublishTime.Date);
+            //}
+
+
+            ////var descendingArticle = from s in articles
+            ////                        orderby s.PublishTime descending
+            ////                        select s;
+            //var descendingArticle = articles.OrderByDescending(s => s.PublishTime);
+            //Console.WriteLine("按降序排列发布的文章：");
+            //foreach (var item in descendingArticle)
+            //{
+            //    Console.WriteLine(item.Title + ":" + item.PublishTime.Date);
+            //}
+
+            ////4.统计每个用户各发布了多少篇文章 
+            ////var userArticle = from s in articles
+            ////                  group s by s.Author;
+            //var userArticle = articles.GroupBy(s => s.Author);
+            //Console.WriteLine("各个用户发表的文章数");
+            //foreach (var item in userArticle)
+            //{
+            //    Console.WriteLine(item.Key.Name + ":" + item.Count());
+            //}
+
+
+            ////5.找出包含关键字“C#”或“.NET”的文章
+            //var keywordArticle = from s in articles
+            //                     where s.Keywords.Any(k => k.Name == "C#" || k.Name == ".NET")
+            //                     select s;
+            ////var keywordArticle = articles.Where(a => a.Keywords.Any(k => k.Name == "C#"||k.Name==".NET"));
+
+            //Console.WriteLine("关键字包含C#或.NET的文章：");
+            //foreach (var item in keywordArticle)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
+
+            ////6.找出评论数量最多的文章 
+            ////var maxCommentarticle = from s in articles
+            ////                        orderby s.Comments.Count() descending
+            ////                        select s;
+            //var maxCommentarticle = articles.OrderByDescending(a => a.Comments.Count());
+            //Console.WriteLine("评论数量最多的文章:");
+            //Console.WriteLine(maxCommentarticle.First().Title);
+
+
+            ////7.找出每个作者评论数最多的文章
+            ////var authorArticle = from s in articles
+            ////                    group s by s.Author;
+
+            ////foreach (var item in authorArticle)
+            ////{
+            ////    Console.WriteLine(item.Key.Name + "评论最多的文章：");
+            ////    var maxComment = from s in item
+            ////                     orderby s.Comments.Count() descending
+            ////                     select s;
+            ////    Console.WriteLine(maxComment.First().Title);
+            ////}
+            //var authorArticle = articles.GroupBy(a => a.Author);
             //foreach (var item in authorArticle)
             //{
             //    Console.WriteLine(item.Key.Name + "评论最多的文章：");
-            //    var maxComment = from s in item
-            //                     orderby s.Comments.Count() descending
-            //                     select s;
+            //    var maxComment = item.OrderByDescending(a => a.Comments.Count());
             //    Console.WriteLine(maxComment.First().Title);
             //}
-            var authorArticle = articles.GroupBy(a => a.Author);
-            foreach (var item in authorArticle)
-            {
-                Console.WriteLine(item.Key.Name + "评论最多的文章：");
-                var maxComment = item.OrderByDescending(a => a.Comments.Count());
-                Console.WriteLine(maxComment.First().Title);
-            }
 
-            //找出每个作者最近发布的一篇文章 
-            //var personArticle = articles.GroupBy(a => a.Author);
-            foreach (var item in authorArticle)
-            {
-                Console.WriteLine(item.Key.Name + "最新发布的文章的文章：");
-                var recentlyArticle = item.OrderByDescending(a => a.PublishTime);
-                Console.WriteLine(recentlyArticle.First().Title);
-            }
-
-            //为求助（Problem）添加悬赏（Reward）属性，并找出每一篇求助的悬赏都大于5个帮帮币的求助作者
-
-
-            Problem CSharpQuestion, HTMLQuestion, SQLQuestion, UIQuestion;
-            CSharpQuestion = new Problem
-            {
-                Title = "C#question",
-                Author = zm,
-                Reward = 4,
-
-            };
-            HTMLQuestion = new Problem
-            {
-                Title = "HTMLquestion",
-                Author = wmz,
-                Reward = 5,
-
-            };
-            SQLQuestion = new Problem
-            {
-                Title = "SQLquestion",
-                Author = ljp,
-                Reward = 6,
-
-            };
-            UIQuestion = new Problem
-            {
-                Title = " UIquestion",
-                Reward = 7,
-
-            };
-            //List<Problem> problems = new List<Problem> { CSharpQuestion, HTMLQuestion, SQLQuestion, UIQuestion };
-            //var rewardBeyongfive = from s in problems
-            //                       where s.Reward > 5
-            //                       select s;
-            //foreach (var item in rewardBeyongfive)
+            ////找出每个作者最近发布的一篇文章 
+            ////var personArticle = articles.GroupBy(a => a.Author);
+            //foreach (var item in authorArticle)
             //{
-            //    Console.WriteLine(item.Title + "的求助者为" + ":" + item.Author.Name+"---"+"求助金币为"+item.Reward);
+            //    Console.WriteLine(item.Key.Name + "最新发布的文章的文章：");
+            //    var recentlyArticle = item.OrderByDescending(a => a.PublishTime);
+            //    Console.WriteLine(recentlyArticle.First().Title);
             //}
+
+            ////为求助（Problem）添加悬赏（Reward）属性，并找出每一篇求助的悬赏都大于5个帮帮币的求助作者
+
+
+            //Problem CSharpQuestion, HTMLQuestion, SQLQuestion, UIQuestion;
+            //CSharpQuestion = new Problem
+            //{
+            //    Title = "C#question",
+            //    Author = zm,
+            //    Reward = 4,
+
+            //};
+            //HTMLQuestion = new Problem
+            //{
+            //    Title = "HTMLquestion",
+            //    Author = wmz,
+            //    Reward = 5,
+
+            //};
+            //SQLQuestion = new Problem
+            //{
+            //    Title = "SQLquestion",
+            //    Author = ljp,
+            //    Reward = 6,
+
+            //};
+            //UIQuestion = new Problem
+            //{
+            //    Title = " UIquestion",
+            //    Reward = 7,
+
+            //};
+            ////List<Problem> problems = new List<Problem> { CSharpQuestion, HTMLQuestion, SQLQuestion, UIQuestion };
+            ////var rewardBeyongfive = from s in problems
+            ////                       where s.Reward > 5
+            ////                       select s;
+            ////foreach (var item in rewardBeyongfive)
+            ////{
+            ////    Console.WriteLine(item.Title + "的求助者为" + ":" + item.Author.Name+"---"+"求助金币为"+item.Reward);
+            ////}
 
 
 
