@@ -17,29 +17,28 @@ namespace Entity
 
         public string GetMessages()
         {
-            if (File.Exists(strFilePath))
+            if (!File.Exists(strFilePath))
             {
-                string messages = File.ReadAllText(strFilePath);
-                return messages;
+                throw new FileNotFoundException("请输入正确的文本路径");
             }
-            else
-            {
-                throw new FieldAccessException("请输入正确的文本路径");
-            }
+
+            string messages = File.ReadAllText(strFilePath);
+            return messages;
+
         }
-       
+
 
         public string[] SplitMessages()
         {
             string lowerMessages = this.GetMessages().ToLower();
-            string trimMessages = lowerMessages.Replace(" ",null);
+            string trimMessages = lowerMessages.Replace(" ", null);
             string[] result = trimMessages.Split(";");
             return result;
         }
 
         public string[] DedupleMessages()
         {
-            string[] result=this.SplitMessages().Distinct().ToArray();
+            string[] result = this.SplitMessages().Distinct().ToArray();
             return result;
         }
 
@@ -65,7 +64,7 @@ namespace Entity
 
         public void WriteMessages(string filepath)
         {
-            File.WriteAllText(filepath,this.RebulidMessages());
+            File.WriteAllText(filepath, this.RebulidMessages());
         }
 
     }
