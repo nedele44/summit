@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw", "Draw\Draw.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drawprogram", "Drawprogram\Drawprogram.csproj", "{85B8EA2D-E131-41C3-9505-A3818C8F578B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LittleWork", "LittleWork\LittleWork.csproj", "{1A46F4F2-A2D2-4626-AA7C-C03B6DD7C9B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{85B8EA2D-E131-41C3-9505-A3818C8F578B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85B8EA2D-E131-41C3-9505-A3818C8F578B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85B8EA2D-E131-41C3-9505-A3818C8F578B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A46F4F2-A2D2-4626-AA7C-C03B6DD7C9B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A46F4F2-A2D2-4626-AA7C-C03B6DD7C9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A46F4F2-A2D2-4626-AA7C-C03B6DD7C9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A46F4F2-A2D2-4626-AA7C-C03B6DD7C9B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
