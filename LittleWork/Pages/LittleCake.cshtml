@@ -1,0 +1,37 @@
+﻿@page
+@model LittleWork.LittleCakeModel
+@{
+    ViewData["Title"] = "LittleCake";
+}
+
+@functions{
+    string Copy(char s, int amount)
+    {
+        string str = "";
+        for (int i = 0; i < amount; i++)
+        {
+            str = str + s;
+        }
+        return str;
+    }
+}
+
+@for (int j = 1; j < 6; j++)
+{
+    <div style="text-align:center;">
+        @{int amount = 2 * j - 1;}
+        @if (j % 2 == 0)
+        {
+
+            <p style="color:red">@Copy('i', amount)</p>
+
+        }
+        else
+        {
+
+            <p style="color:blue">@Copy('i', amount)</p>
+
+        }
+    </div>
+}
+
