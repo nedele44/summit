@@ -1,0 +1,70 @@
+﻿@page
+@model LittleWork.CalendarModel
+@{
+    ViewData["Title"] = "Calendar";
+}
+
+@{
+    DateTime date = DateTime.Now;
+    int currentMonth = date.Month;
+    int currentYear = date.Year;
+    DateTime firstDayInMonth = new DateTime(currentYear, currentMonth, 1);
+    int firstDayWeek = (int)firstDayInMonth.DayOfWeek;
+    int firstSunday = (firstDayWeek == 0 ? firstDayWeek : 8 - firstDayWeek);
+    DateTime firstSundayInMonth = new DateTime(currentYear, currentMonth, firstSunday);
+}
+
+
+<table border="1" style="text-align:center">
+    <thead>
+        <tr>
+            <td colspan="2">&lt;&lt;</td>
+            <td colspan="3">@currentYear 年- @currentMonth 月</td>
+            <td colspan="2">&gt;&gt;</td>
+        </tr>
+        <tr>
+            <th>星期日</th>
+            <th>星期一</th>
+            <th>星期二</th>
+            <th>星期三</th>
+            <th>星期四</th>
+            <th>星期五</th>
+            <th>星期六</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @for (int i = 0; i < firstDayWeek; i++)
+            {
+                <td>@firstDayInMonth.AddDays(i - 3).Day</td>
+            }
+            @for (int i = 0; i < 7 - firstDayWeek; i++)
+            {
+
+                <td>@firstDayInMonth.AddDays(i).Day</td>
+            }
+        </tr>
+        @for (int i = 0; i < 4; i++)
+        {
+            if (firstSunday == 0)
+            {
+                <tr>
+                    @for (int j = 0; j < 7; j++)
+                    {
+                        <td>@firstSundayInMonth.AddDays(7 * (i + 1)).AddDays(j).Day</td>
+                    }
+
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    @for (int j = 0; j < 7; j++)
+                    {
+                        <td>@firstSundayInMonth.AddDays(7 * i).AddDays(j).Day</td>
+                    }
+                </tr>
+            }
+        }
+     </tbody>
+</table>
