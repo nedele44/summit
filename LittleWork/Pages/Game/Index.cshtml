@@ -1,0 +1,15 @@
+﻿@page
+@using LittleWork.ExtensionMethods
+@model LittleWork.Game.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@foreach (var game in Model.Items)
+{
+    <small>@game.PublishTime.ToString("yyyy年MM月dd日")</small>
+    <a href="/user/@game.Author.Id">@game.Author.Name</a>
+    <h4><span>@game.kind.GetDescription()</span><a href ="/game/@game.Id">@game.Title</a></h4>
+    <p>@game.Abstract</p>
+}
