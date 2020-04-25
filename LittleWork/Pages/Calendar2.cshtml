@@ -12,7 +12,7 @@
     int currentYear = date.Year;
     DateTime firstDayInMonth = new DateTime(currentYear, currentMonth, 1);
     int firstDayWeek = (int)firstDayInMonth.DayOfWeek;
-    DateTime firstSundayInCalendar = (firstDayWeek == 0 ? firstDayInMonth : firstDayInMonth.AddDays(-firstDayWeek));
+    DateTime firstMonndayInCalendar = (firstDayWeek == 0 ? firstDayInMonth.AddDays(-6) : firstDayInMonth.AddDays(1-firstDayWeek));
 
 }
 
@@ -25,13 +25,14 @@
             <td colspan="2">&gt;&gt;</td>
         </tr>
         <tr>
-            <th>星期日</th>
+
             <th>星期一</th>
             <th>星期二</th>
             <th>星期三</th>
             <th>星期四</th>
             <th>星期五</th>
             <th>星期六</th>
+            <th>星期日</th>
         </tr>
     </thead>
     <tbody>
@@ -40,7 +41,7 @@
             <tr>
                 @for (int j = 0; j < 7; j++)
                 {
-                    <td>@firstSundayInCalendar.AddDays(7 * i).AddDays(j).Day</td>
+                    <td>@firstMonndayInCalendar.AddDays(7 * i).AddDays(j).Day</td>
                 }
             </tr>
         }
