@@ -24,7 +24,16 @@ namespace LittleWork.Game
         }
         public void OnGet()
         {
-            Items = _repository.get();
+            string include = Request.Query["include"];
+            if (string.IsNullOrEmpty(include))
+            {
+                Items = _repository.Get();
+            }
+            else
+            {
+                Items = _repository.Getinclude(Enum.Parse<GameKind>(include));
+            }
+            
         }
 
         public void Onpost()

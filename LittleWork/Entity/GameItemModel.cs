@@ -15,7 +15,7 @@ namespace LittleWork.Entity
 
         public string Title { get; set; }
         public string Abstract { get; set; }
-        public GameKind kind { get; set; }
+        public GameKind Kind { get; set; }
 
     }
 }

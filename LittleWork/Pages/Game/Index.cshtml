@@ -1,15 +1,58 @@
 ﻿@page
 @using LittleWork.ExtensionMethods
+@using LittleWork.Game
+@using LittleWork.Entity
 @model LittleWork.Game.IndexModel
 @{
     ViewData["Title"] = "Index";
 }
 
 
+<div>
+    只显示：
+    @if (Request.Query["include"] == "RPG")
+    {
+        <span>角色扮演</span>
+    }
+    else
+    {
+        <a href="/game/index?include=@GameKind.RPG">角色扮演</a>
+    }
+    @if (Request.Query["include"] == "ACT")
+    {
+        <span>|</span>
+        <span>动作</span>
+    }
+    else
+    {
+        <span>|</span>
+        <a href="/game/index?include=@GameKind.ACT">动作</a>
+    }
+    @if (Request.Query["include"] == "MMORPG")
+    {
+        <span>|</span>
+        <span>多人在线</span>
+    }
+    else
+    {
+        <span>|</span>
+        <a href="/game/index?include=@GameKind.MMORPG">多人在线</a>
+    }
+    |<a href="/game/index?include=@GameKind.FTG">格斗</a>
+    |<a href="/game/index?include=@GameKind.MOBA">多人竞技</a>
+    |<a href="/game/index?include=@GameKind.STG">射击</a>
+</div>
+
 @foreach (var game in Model.Items)
 {
     <small>@game.PublishTime.ToString("yyyy年MM月dd日")</small>
-    <a href="/user/@game.Author.Id">@game.Author.Name</a>
-    <h4><span>@game.kind.GetDescription()</span><a href ="/game/@game.Id">@game.Title</a></h4>
-    <p>@game.Abstract</p>
+
+    <p>
+        <span style=" font-size:10px;color:red">[@game.Kind.GetDescription()]</span>
+        <a href="/game/@game.Id">@game.Title</a>
+        <span style=" font-size:10px;color:red"> 作者</span>
+        <a href="/user/@game.Author.Id" style=" font-size:10px;color:blue">@game.Author.Name</a>
+
+    </p>
+    <small>@game.Abstract</small>
 }

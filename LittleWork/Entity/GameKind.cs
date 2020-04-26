@@ -18,7 +18,10 @@ namespace LittleWork.Entity
         [Description("射击")]
         STG,
         [Description("格斗")]
-        FTG
+        FTG,
+        [Description("多人在线")]
+        MMORPG
+
 
 
     }
