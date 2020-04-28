@@ -206,7 +206,10 @@ namespace LittleWork.Repository
         {
             return _games;
         }
-
+        public GameItemModel Get(int id)
+        {
+            return _games.SingleOrDefault(p => p.Id == id);
+        }
         public void Add(GameItemModel model)
         {
             _games.Add(model);

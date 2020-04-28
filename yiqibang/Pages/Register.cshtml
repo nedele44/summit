@@ -1,0 +1,44 @@
+﻿@page
+
+@model yiqibang.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+@*从注册页面开始，一起帮注册页面的表单内容比较多，如果这个能完成，其他的基本
+    上不在话下，首先是有邀请人和邀请码，然后是用户名，密码和验证密码，验证码
+    提交与重置两个按钮*@
+
+<main class="container">
+    <div class="row">
+        <register class="col-6">
+            <h2><span class="fa fa-registered" aria-hidden="true"></span>注册</h2>
+            @*接下来就是要完成的form表单*@
+            <div>
+                <form method="post" asp-page="/index" class="form-group form-control-range">
+
+                    <label>邀请人：</label>（*必填,<a class="text-info" href="/user/Inviters">没有邀请人）</a><br />
+                    <input class="form-control" placeholder="他的用户名，模糊查询只能从头开始" asp-for="User.Name" />
+                    <label>邀请码：</label>（*必填）<br />
+                    <input class="form-control" placeholder="4位数字" asp-for="User.InviteCode" />
+                    <br />
+                    <label>用户名：</label>（*必填）<br />
+                    <input class="form-control" placeholder="登录用户名，可修改，不可重复" asp-for="User.Name" />
+                    <label>密码：</label>（*必填）<br />
+                    <input class="form-control" placeholder="不少于4个字符" asp-for="Password" />
+                    <label>验证密码：</label>（*必填）<br />
+                    <input class="form-control" placeholder="与密码相同" asp-for="ComfirmPassword" />
+
+                    @*验证码的生成以及验证码图片的相关操作，后续再来搞*@
+                    <label>验证码：</label>（*必填）<br />
+                    <input class="form-control" />
+                </form>
+            </div>
+        </register>
+        <aside class="col-6 align-content-center">
+        </aside>
+    </div>
+
+
+</main>
+
+

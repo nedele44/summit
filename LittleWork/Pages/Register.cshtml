@@ -1,0 +1,20 @@
+﻿@page
+@model LittleWork.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+
+    <form method="post" asp-page="/Register">
+        <div>
+            <label>用户名：（*必填）</label><input asp-for="User.Name">
+            
+        </div>
+        <div>
+            <label>密码：</label><input type="password" name="Password" />
+        </div>
+        <div>
+            <button type="submit">提交</button>
+        </div>
+    </form>
+
