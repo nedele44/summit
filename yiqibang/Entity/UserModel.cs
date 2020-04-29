@@ -10,5 +10,11 @@ namespace yiqibang.Entity
         public string InviteCode { get; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public string QQ { get; set; }
+
+        public string WeChat { get; set; }
+
+        public string Telphone { get; set; }
+
     }
 }

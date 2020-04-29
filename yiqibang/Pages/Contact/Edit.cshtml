@@ -1,0 +1,34 @@
+﻿@page
+@model yiqibang.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<main class="container">
+    <div class="row">
+        <register class="col-6">
+            <h2><span class="fa fa-envelope" aria-hidden="true"></span>修改联系方式</h2>
+            @*接下来就是要完成的form表单*@
+            <div>
+                <form method="post" class="form-group form-control-range">
+
+                    <label>QQ：</label><br />
+                    <input class="form-control" placeholder="建议填写" asp-for="User.QQ" />
+                    <label>微信：</label><br />
+                    <input class="form-control" placeholder="建议填写" asp-for="User.WeChat" />
+                    <label>电话：</label><br />
+                    <input class="form-control" placeholder="建议填写" asp-for="User.Telphone" />
+                    <label>其他：</label><br />
+                    <textarea placeholder="需要说明的情况，比如加QQ时验证问题的回答，否则别人加不了，这就尴尬了。 φ(>ω<*)
+以及你能够接受的其他联系方式……" asp-for="SelfDescription" rows="4" class="form-control"></textarea>
+
+
+                    <button type="submit" asp-page="/index">修改</button>
+                    <span class="fa fa-info-circle"></span>成功激活后自动返回<a href="/">之前页面</a>
+                </form>
+            </div>
+        </register>
+        <aside class="col-6 align-content-center">
+        </aside>
+    </div>
+
