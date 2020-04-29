@@ -1,0 +1,61 @@
+﻿@page
+@model yiqibang.ForgetModel
+@{
+    ViewData["Title"] = "Forget";
+}
+
+<main class="container">
+    <div class="row">
+        <div class="col-5">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active" role="presentation">
+                    <a href="#password" data-toggle="tab" aria-expanded="true">
+                        <span class="fa fa-lock"></span>密码
+                    </a>
+
+                </li>
+                <li class="" role="presentation">
+                    <a href="#username" data-toggle="tab" aria-expanded="false">
+                        <span class="fa fa-user-circle-o"></span>用户名
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="password" class="tab-pane active" role="tabpanel">
+                    <form class="form-group">
+                        <label>Email：（* 必填）</label>
+                        <input class="form-control" placeholder="注册时填写的Email地址" asp-for="User.Email" />
+                        <label>通过用户名查找Email：</label>
+                        <input class="form-control" placeholder="必须全称，且不要忘了点击 搜索 按钮" type="text"
+                               asp-for="User.Name" />
+                        <span class="input-group-addon">
+                            <a zyf-search-email-by-username="">
+                                <span class="fa fa-search"></span>
+                            </a>
+                        </span>
+                        <label>验证码：</label>（*必填）<br />
+                        <input class="form-control" />
+                        <button type="submit" class="btn btn-primary">发送邮件</button>
+                        <button type="reset">重置</button>
+                    </form>
+                </div>
+                <div id="username" class="tab-pane" role="tabpanel">
+                    <form>
+                        <label>QQ:</label>
+                        <input class="form-control" placeholder="支持从头开始的模糊查询" />
+                        <a zyf-search-email-by-username="">
+                            <span class="fa fa-search"></span>查找
+                        </a>
+                        <label>Email:</label>
+                        <input class="form-control" placeholder="支持从头开始的模糊查询" />
+                        <a zyf-search-email-by-username="">
+                            <span class="fa fa-search"></span>查找
+                        </a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

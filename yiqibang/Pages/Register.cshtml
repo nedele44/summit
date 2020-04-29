@@ -14,7 +14,7 @@
             <h2><span class="fa fa-registered" aria-hidden="true"></span>注册</h2>
             @*接下来就是要完成的form表单*@
             <div>
-                <form method="post" asp-page="/index" class="form-group form-control-range">
+                <form method="post"  class="form-group form-control-range">
 
                     <label>邀请人：</label>（*必填,<a class="text-info" href="/user/Inviters">没有邀请人）</a><br />
                     <input class="form-control" placeholder="他的用户名，模糊查询只能从头开始" asp-for="User.Name" />
@@ -32,7 +32,7 @@
                     <label>验证码：</label>（*必填）<br />
                     <input class="form-control" />
 
-                    <button type="submit">提交</button>
+                    <button type="submit" asp-page="/index">提交</button>
                     <button type="reset">重置</button>
                 </form>
             </div>

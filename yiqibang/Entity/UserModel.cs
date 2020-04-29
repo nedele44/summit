@@ -9,5 +9,6 @@ namespace yiqibang.Entity
     {
         public string InviteCode { get; }
         public string Name { get; set; }
+        public string Email { get; set; }
     }
 }
