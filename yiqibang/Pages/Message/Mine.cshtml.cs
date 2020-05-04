@@ -45,10 +45,10 @@ namespace yiqibang.Pages.Message
                 {
                     if (item.Selected)
                     {
-                        MyMessages= _repository.Delete(item.Id);
+                         _repository.Delete(item.Id);
                     }
-
                 }
+                MyMessages = _repository.Get();
             }
           
         }
