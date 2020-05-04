@@ -42,19 +42,23 @@ namespace yiqibang.Repository
                  },
             };
         }
-
+        public IList<MessageModel>  Get()
+        {
+            return _messages;
+        }
 
 
         public MessageModel Get(int id)
         {
             return _messages.Where(m => m.Id == id).Single();
         }
-        public MessageRepository Delete(int id)
+        public IList<MessageModel> Delete(int id)
         {
             var remain = from s in _messages
                          where s.Id != id
                          select s;
-            
+            _messages = remain.ToList();
+            return _messages;
         }
     }
 }

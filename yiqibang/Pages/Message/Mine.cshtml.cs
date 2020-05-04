@@ -25,7 +25,7 @@ namespace yiqibang.Pages.Message
         }
         public void OnGet()
         {
-            
+            MyMessages = _repository.Get();
         }
         public void OnPost()
         {
@@ -45,7 +45,7 @@ namespace yiqibang.Pages.Message
                 {
                     if (item.Selected)
                     {
-                        _repository=_repository.Delete(item.Id);
+                        MyMessages= _repository.Delete(item.Id);
                     }
 
                 }
