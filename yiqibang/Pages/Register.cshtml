@@ -9,12 +9,13 @@
     提交与重置两个按钮*@
 
 <main class="container">
+
     <div class="row">
         <register class="col-6">
             <h2><span class="fa fa-registered" aria-hidden="true"></span>注册</h2>
             @*接下来就是要完成的form表单*@
             <div>
-                <form method="post"  class="form-group form-control-range">
+                <form method="post" class="form-group form-control-range">
 
                     <label>邀请人：</label>（*必填,<a class="text-info" href="/user/Inviters">没有邀请人）</a><br />
                     <input class="form-control" placeholder="他的用户名，模糊查询只能从头开始" asp-for="User.Name" />

@@ -1,0 +1,17 @@
+﻿@page
+@model yiqibang.Pages.Article.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <main>
+        @foreach (var article in Model.Items)
+        {
+            <p>
+                   <a href="/article/@article.Id">@article.Title</a>
+                <span style=" font-size:10px;color:red"> 作者</span>
+                <a href="/user/@article.Author.Id" style=" font-size:10px;color:blue">@article.Author.Name</a>
+            </p>
+        }
+    </main>
+

@@ -11,15 +11,21 @@ namespace yiqibang
 {
     public class RegisterModel : PageModel
     {
+        [BindProperty]
         [DataType(DataType.Password)]
         public string Password { get; set; }
         public UserModel User { get; set; }
 
         [DataType(DataType.Password)]
+        //默认输入的是密码框，而不是文字框
         public string ComfirmPassword { get; set; }
         public void OnGet()
         {
 
+        }
+
+        public void OnPost()
+        {
         }
     }
 }

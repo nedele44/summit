@@ -1,0 +1,54 @@
+﻿@page
+@model yiqibang.Pages.Message.MineModel
+@{
+    ViewData["Title"] = "Mine";
+}
+
+<main class="container">
+    <div class="row">
+        <message class="col-9">
+            <h2><span class="fa fa-bell" aria-hidden="true"></span>我的消息</h2>
+            <form action="/Message/Mine" method="post" style="font-size:14px">
+                <div>
+                    <label>
+                        @*这里“全选”的复选框，当他被选择时，下面的的复选框也会被选择，
+                            这是怎么实现的呢，后面会学到吗，还是已经学了*@
+                        <input type="checkbox" zyf-select-all="">全选
+                    </label>
+                    @*zyf是哪一块的知识，咋没有印象*@
+                    <button class="btn" asp-page="/Message/Mine" asp-route-opt="read" zyf-named-submit-once="">
+                        <span class="fa fa-check-circle"></span>已读
+                    </button>
+                    <button class="btn" asp-page="/Message/Mine" asp-route-opt="delete" zyf-named-submit-once="">
+                        <span class="fa fa-check-circle"></span>删除
+                    </button>
+                </div>
+                <div class="row">
+                    <blank class="col-1"></blank>
+                    <time class="col-1">时间</time>
+                    <book class="col-2">
+                        @*这里的订阅种类鼠标上去后显示筛选和退订，点击有筛选框，怎么实现的呢*@
+                        <a zyf-message-filter="" data-original-title="筛选/退订">
+                            订阅种类
+                            <span class="fa fa-cog"></span>
+                        </a>
+                    </book>
+                    <content class="col-8">内容</content>
+                </div>
+                <hr class="thin visible-sm visible-md visible-lg">
+                @foreach (var message in Model.MyMessages)
+                {
+                    string fontWeight = message.IsRead ? "font-weight:500" : string.Empty;                    <div class="row">
+                        <blank class="col-1"><input asp-for="@message.Selected"></blank>
+                        <time class="col-1">@message.BulidTime</time>
+                        <book class="col-2" style="@fontWeight">[@message.Kind]</book>
+                        <content class="col-8">@message.Content</content>
+                    </div>
+                    <hr class="thin visible-sm visible-md visible-lg">
+                }
+            </form>
+        </message>
+    </div>
+</main>
+
+
