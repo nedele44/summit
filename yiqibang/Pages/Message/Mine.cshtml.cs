@@ -16,7 +16,7 @@ namespace yiqibang.Pages.Message
 
     public class MineModel : PageModel
     {
-        
+
         public IList<MessageModel> MyMessages { get; set; }
         private MessageRepository _repository;
         public MineModel()
@@ -29,7 +29,8 @@ namespace yiqibang.Pages.Message
         }
         public void OnPost()
         {
-            if (Request.RouteValues["opt"].ToString()=="read")
+            string opt = Request.RouteValues["opt"].ToString();
+            if (opt == "read")
             {
                 foreach (var item in MyMessages)
                 {
@@ -39,20 +40,20 @@ namespace yiqibang.Pages.Message
                     }
                 }
             }
-            else if (Request.RouteValues["opt"].ToString() == "delete")
+            else if (opt == "delete")
             {
                 foreach (var item in MyMessages)
                 {
                     if (item.Selected)
                     {
-                         _repository.Delete(item.Id);
+                        _repository.Delete(item.Id);
                     }
                 }
-                MyMessages = _repository.Get();
+            
             }
-          
+
         }
-       
+
 
     }
 }
