@@ -1,0 +1,35 @@
+﻿@page "/LogOn"
+@model yiqibang.Pages.Log.OnModel
+@{
+    ViewData["Title"] = "On";
+}
+
+<main class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>
+                <span class="fa fa-sign-in" aria-hidden="true">
+                </span>
+                用户登录
+            </h2>
+            <form method="post" asp-page="LogOn">
+                <div>
+                    <label>用户名：</label>（*必填）<br />
+                    <input class="form-control" placeholder="不是昵称，是登录用户名" asp-for="Name" />
+                    @*显示验证*@
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div>
+                    <label>密码：</label>（*必填）<br />
+                    <input class="form-control" placeholder="不少于四个字符" asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div>
+                    <button type="submit">提交</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</main>
+
